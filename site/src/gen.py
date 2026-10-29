@@ -242,7 +242,8 @@ FONTS = 'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,700.
 
 BRAND_MARK = _brand.mark_svg(32, ink='currentColor', signal='var(--signal)').replace('<svg ', '<svg aria-hidden="true" class="brandmark" ', 1)
 def header(cur):
-    nav = ''.join(f'<a href="{h}"{" aria-current=\"page\"" if k==cur else ""}>{t}</a>' for h, t, k in NAV)
+    CUR = ' aria-current="page"'
+    nav = ''.join(f'<a href="{h}"{CUR if k==cur else ""}>{t}</a>' for h, t, k in NAV)
     mnav = ''.join(f'<a href="{h}">{t}</a>' for h, t, k in NAV)
     return f'''<a class="skip" href="#main">Skip to content</a>
 <header class="masthead"><div class="wrap">
@@ -858,7 +859,8 @@ def build_blog():
     for p in POSTS:
         body_html = _md.markdown(p['body'], extensions=['tables', 'fenced_code', 'smarty'])
         body_html = re.sub(r'<img alt="([^"]*)" src="(?!https?://)([^"]+)"', lambda m: f'<img alt="{m.group(1)}" src="images/{m.group(2)}" loading="lazy"', body_html)
-        body_html = re.sub(r'<p>(<img[^>]+>)</p>', lambda m: f'<figure style="margin:0">{m.group(1)}<figcaption class="small sub">{re.search(r"alt=\"([^\"]*)\"", m.group(1)).group(1)}</figcaption></figure>', body_html)
+        ALT = re.compile(r'alt="([^"]*)"')
+        body_html = re.sub(r'<p>(<img[^>]+>)</p>', lambda m: f'<figure style="margin:0">{m.group(1)}<figcaption class="small sub">{(ALT.search(m.group(1)) or [None, ""])[1] if False else (ALT.search(m.group(1)).group(1) if ALT.search(m.group(1)) else "")}</figcaption></figure>', body_html)
         prods = p.get('products') or []
         hero = f'<figure style="margin:0"><img src="images/{e(p["hero"])}" alt="{e(p["title"])}" style="width:100%;border-radius:var(--r)"></figure>' if p.get('hero') and os.path.exists(f'{CONTENT}/images/{p["hero"]}') else ''
         related = [q for q in POSTS if q is not p][:3]
