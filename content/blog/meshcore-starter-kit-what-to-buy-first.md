@@ -50,3 +50,7 @@ It costs more than the whole cheap kit. It is also the radio you will still be c
 ## What to buy second
 
 Not a second companion. A repeater, if your area needs one, or a better antenna for the one you have. The repeater board comparison and the solar parts list on this site cover that. Until then, one good companion and a group that already has repeaters is the whole hobby.
+
+## Further reading
+
+If mesh radio is part of a bigger emergency-communications plan for you, our sister site Prepped Gear covers the rest of the stack: [GMRS radios](https://preppedgear.com/best-gmrs-radio/), [emergency radios](https://preppedgear.com/best-emergency-radio/), and [MeshCore vs Meshtastic](https://preppedgear.com/meshcore-vs-meshtastic/) from the prepping side.

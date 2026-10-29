@@ -53,3 +53,7 @@ GPS: both have it. Price: close enough that it should not decide. Firmware suppo
 The L1 Pro is the radio clipped to my bag. The T-Deck Plus lives in the truck's center console on a USB cable, where its battery life does not matter and its screen does. If I could only keep one, it would be the L1 Pro, because a companion that is dead is not a companion.
 
 If you buy the T-Deck Plus, buy the case with the SMA cutout and plan to charge it nightly. If you buy the L1 Pro, install the OTAFIX bootloader the day it arrives so you can update it over Bluetooth later; the flasher warns you about this and it is easier to do before you depend on the radio.
+
+## Further reading
+
+For the T-Deck family itself (T-Deck vs Plus vs Pro, internal vs external antenna), our sister site Prepped Gear has a [full T-Deck Plus review](https://preppedgear.com/lilygo-t-deck-plus-review/).

@@ -67,3 +67,7 @@ Here for one case: a repeater that has wall power, like a second-floor window or
 - Indoor with an outlet: **Heltec V4**.
 
 Then put the money you saved into the antenna, which matters more than any of this.
+
+## Further reading
+
+Prepped Gear, our sister site for emergency communications, keeps a [best MeshCore device roundup](https://preppedgear.com/best-meshcore-device/) that covers the same boards from a preparedness angle, and a [Meshtastic solar node guide](https://preppedgear.com/meshtastic-solar-node/) whose power math applies here too.

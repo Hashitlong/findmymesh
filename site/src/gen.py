@@ -662,7 +662,7 @@ def build_vs():
     v = (GUIDES or {}).get('vs_meshtastic')
     if v:
         tbl = '<div class="tbox"><table><thead><tr><th>Topic</th><th>MeshCore</th><th>Meshtastic</th></tr></thead><tbody>' + ''.join(f'<tr><th scope="row" style="text-transform:none;letter-spacing:0;font-family:var(--body);font-size:16px;color:var(--ink)">{e(r["topic"])}</th><td>{e(r["meshcore"])}</td><td>{e(r["meshtastic"])}</td></tr>' for r in v['rows']) + '</tbody></table></div>'
-        inner = (f'<p class="prose">{e(v.get("intro",""))}</p>' if v.get('intro') else '') + tbl + f'<div class="prose">{"".join(f"<p>{e(p)}</p>" for p in v.get("paragraphs", []))}</div>' + sources(v.get('sources'))
+        inner = (f'<p class="prose">{e(v.get("intro",""))}</p>' if v.get('intro') else '') + tbl + f'<div class="prose">{"".join(f"<p>{e(p)}</p>" for p in v.get("paragraphs", []))}</div>' + sources(v.get('sources')) + '<p class="prose small sub">Related: our sister site Prepped Gear compares the two from an emergency-communications angle in <a href="https://preppedgear.com/meshcore-vs-meshtastic/">MeshCore vs Meshtastic: routing, apps, hardware</a>.</p>'
     else: inner = PENDING
     body = band(pagehead('MeshCore vs Meshtastic', 'The two big LoRa mesh projects, compared on what each one documents. Many U.S. groups run both.', [('index.html','Home'),('start.html','Get started'),(None,'MeshCore vs Meshtastic')]), 37) + f'<div class="wrap section">{inner}</div>'
     page('meshcore-vs-meshtastic.html', 'MeshCore vs Meshtastic', 'MeshCore and Meshtastic compared side by side: routing, repeaters, hop limits, apps, hardware and which to choose.', 'start', body)

@@ -79,3 +79,7 @@ The reversible J-pole mount holds the antenna off an eave, fascia or wall and gi
 - Install the OTAFIX bootloader if the flasher recommends it for your board, so you can update it later without taking it down.
 
 Then put it up and leave it alone. The best repeater is the one you forget about.
+
+## Further reading
+
+If you want to size the panel and battery more carefully, the [solar node guide on Prepped Gear](https://preppedgear.com/meshtastic-solar-node/) (our sister site) walks through the numbers. For keeping the rest of the house running in an outage, their [power outage kit checklist](https://preppedgear.com/power-outage-kit-checklist/) is the companion piece.

@@ -44,3 +44,7 @@ The Heltec V3 is the board most people start MeshCore on. The V4 came out as a d
 ## One warning about antennas
 
 Both boards will transmit into a bad antenna or no antenna. On the V4 especially, with the amplifier, powering it up with nothing on the SMA connector is a good way to damage the radio. Antenna first, power second, always.
+
+## Further reading
+
+Our sister site Prepped Gear has a [Heltec V3 vs V4 comparison](https://preppedgear.com/heltec-v3-vs-v4/) written from the Meshtastic side, including the GNSS version of the V4 and a two-pack kit, if you run both firmwares.
