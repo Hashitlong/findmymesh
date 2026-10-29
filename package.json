@@ -1,0 +1,16 @@
+{
+  "name": "findmymesh",
+  "private": true,
+  "version": "1.0.0",
+  "description": "findmymesh.com static site: U.S. MeshCore group directory, gear and reviews",
+  "scripts": {
+    "nodes": "node site/src/fetch_nodes.mjs || echo 'node fetch failed; using committed nodes.json'",
+    "build": "python3 -m pip install --quiet --user markdown || pip3 install --quiet markdown; npm run nodes; python3 site/src/gen.py --site https://findmymesh.com",
+    "crawl": "node site/crawl.js"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "msgpackr": "^1.11.2",
+    "topojson-client": "^3.1.0"
+  }
+}

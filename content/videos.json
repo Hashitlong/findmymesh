@@ -1,0 +1,735 @@
+{
+  "checked": "2026-10-29",
+  "videos": [
+    {
+      "title": "Intro to LoRa Mesh Part 1: What are Meshtastic and MeshCore? | DigiKey",
+      "channel": "DigiKey",
+      "channel_url": "https://www.youtube.com/@digikey",
+      "url": "https://www.youtube.com/watch?v=CSpjDLRIpio",
+      "video_id": "CSpjDLRIpio",
+      "category": "intro",
+      "published": "2026-10-15",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Part 1 of a series from the electronics distributor; covers both projects."
+    },
+    {
+      "title": "Build Your Own Off-Grid Network Right Now With MeshCore",
+      "channel": "Ham Radio Crash Course",
+      "channel_url": "https://www.youtube.com/@HamRadioCrashCourse",
+      "url": "https://www.youtube.com/watch?v=AJERyIUmisI",
+      "video_id": "AJERyIUmisI",
+      "category": "intro",
+      "published": "2026-06-30",
+      "verified_by": "oembed",
+      "notes": "Premiered; date from watch page. Large ham-radio channel."
+    },
+    {
+      "title": "Should You Try MeshCore? WHAT YOU NEED TO KNOW!",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=4HA-CqbUCZE",
+      "video_id": "4HA-CqbUCZE",
+      "category": "intro",
+      "published": "2026-04-11",
+      "verified_by": "oembed",
+      "notes": "date from watch page (RSS shows 2026-04-12 UTC)."
+    },
+    {
+      "title": "Communicating Off Grid: Is Meshcore Better than Meshtastic?",
+      "channel": "Lon.TV",
+      "channel_url": "https://www.youtube.com/@LonSeidman",
+      "url": "https://www.youtube.com/watch?v=dhdWNXGGeE8",
+      "video_id": "dhdWNXGGeE8",
+      "category": "vs",
+      "published": "2026-03-09",
+      "verified_by": "oembed",
+      "notes": "date from watch page."
+    },
+    {
+      "title": "Why we're switching from Meshtastic to MeshCore",
+      "channel": "The Comms Channel",
+      "channel_url": "https://www.youtube.com/@The_Comms_Channel",
+      "url": "https://www.youtube.com/watch?v=guDoKGs02Us",
+      "video_id": "guDoKGs02Us",
+      "category": "vs",
+      "published": "2025-12-06",
+      "verified_by": "oembed",
+      "notes": "date from watch page."
+    },
+    {
+      "title": "HOW TO SWITCH FROM MESHTASTIC TO MESHCORE EASY!!!",
+      "channel": "andy kirby",
+      "channel_url": "https://www.youtube.com/@andykirby",
+      "url": "https://www.youtube.com/watch?v=M7Rs_Od1MPI",
+      "video_id": "M7Rs_Od1MPI",
+      "category": "vs",
+      "published": "2025-10-01",
+      "verified_by": "oembed",
+      "notes": "date from watch page; matches RSS. Older than most picks; firmware/app may have changed. Andy Kirby runs meshcore.co.uk/MeshOS, separate from the meshcore.io core team."
+    },
+    {
+      "title": "MeshCore App Explained: Setup, Messaging & Repeater Tools",
+      "channel": "Ham Radio DX",
+      "channel_url": "https://www.youtube.com/@HamRadioDX",
+      "url": "https://www.youtube.com/watch?v=hdri8JJZtAw",
+      "video_id": "hdri8JJZtAw",
+      "category": "setup",
+      "published": "2026-07-06",
+      "verified_by": "oembed",
+      "notes": "date from watch page."
+    },
+    {
+      "title": "MeshCore App Deep Dive – contacts, channels, and more",
+      "channel": "Ham Radio 2.0",
+      "channel_url": "https://www.youtube.com/@HamRadio2",
+      "url": "https://www.youtube.com/watch?v=cqCtyrPX2Yc",
+      "video_id": "cqCtyrPX2Yc",
+      "category": "setup",
+      "published": "2026-04-24",
+      "verified_by": "oembed",
+      "notes": "Premiered; date from watch page."
+    },
+    {
+      "title": "MeshCore Companion Flashing",
+      "channel": "The Comms Channel",
+      "channel_url": "https://www.youtube.com/@The_Comms_Channel",
+      "url": "https://www.youtube.com/watch?v=ems9_XvdPX8",
+      "video_id": "ems9_XvdPX8",
+      "category": "setup",
+      "published": "2026-02-20",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Part of The Comms Channel's MeshCore QuickStart playlist (PLshzThxhw4O4WU_iZo3NmNZOv6KMrUuF9)."
+    },
+    {
+      "title": "MeshCore Repeater Flashing and Config",
+      "channel": "The Comms Channel",
+      "channel_url": "https://www.youtube.com/@The_Comms_Channel",
+      "url": "https://www.youtube.com/watch?v=axMCA7GTvt0",
+      "video_id": "axMCA7GTvt0",
+      "category": "repeater",
+      "published": "2026-05-14",
+      "verified_by": "oembed",
+      "notes": "date from watch page; matches RSS."
+    },
+    {
+      "title": "HOW TO FLASH A HELTEC MESHCORE REPEATER + ROOM SERVER -FULL SETUP  #Meshcore #heltecv4 #LoRaRepeater",
+      "channel": "HOTSPOT GUY",
+      "channel_url": "https://www.youtube.com/@HOTSPOTGUY",
+      "url": "https://www.youtube.com/watch?v=ITEiZhItdTQ",
+      "video_id": "ITEiZhItdTQ",
+      "category": "repeater",
+      "published": "2025-12-30",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Heltec V4 repeater and room server."
+    },
+    {
+      "title": "The Ultimate Off-Grid Comms Build: Meshcore Solar Repeater Step-by-Step",
+      "channel": "Ham Radio DX",
+      "channel_url": "https://www.youtube.com/@HamRadioDX",
+      "url": "https://www.youtube.com/watch?v=sLOg2cZwBik",
+      "video_id": "sLOg2cZwBik",
+      "category": "solar",
+      "published": "2026-04-12",
+      "verified_by": "oembed",
+      "notes": "date from watch page."
+    },
+    {
+      "title": "RAKWireless 1W MeshCore Solar Repeater Build",
+      "channel": "Mesh America",
+      "channel_url": "https://www.youtube.com/@MeshAmerica",
+      "url": "https://www.youtube.com/watch?v=tzdvjHSM0nM",
+      "video_id": "tzdvjHSM0nM",
+      "category": "solar",
+      "published": "2026-07-20",
+      "verified_by": "oembed",
+      "notes": "date from watch page. U.S.-focused channel."
+    },
+    {
+      "title": "Morbo Standard Plug n' Play MeshCore Meshtastic Solar Repeater Build with RAK 1W Booster.",
+      "channel": "zerofox3D",
+      "channel_url": "https://www.youtube.com/@zerofox3d",
+      "url": "https://www.youtube.com/watch?v=GUFPiUj0rm4",
+      "video_id": "GUFPiUj0rm4",
+      "category": "solar",
+      "published": "2026-08-11",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Features the creator's own 'Morbo' enclosure design (whether it is sold commercially not verified)."
+    },
+    {
+      "title": "Meshcore / Meshtastic Devices That Work Out of the Box!",
+      "channel": "Lon.TV",
+      "channel_url": "https://www.youtube.com/@LonSeidman",
+      "url": "https://www.youtube.com/watch?v=DyUza2XNjFQ",
+      "video_id": "DyUza2XNjFQ",
+      "category": "device",
+      "published": "2026-09-14",
+      "verified_by": "oembed",
+      "notes": "date from watch page (Lon.TV blog post is dated 2026-09-17). Ready-made devices."
+    },
+    {
+      "title": "You need to try this!!! Introducing MeshOS for T-Deck",
+      "channel": "andy kirby",
+      "channel_url": "https://www.youtube.com/@andykirby",
+      "url": "https://www.youtube.com/watch?v=XJV4TMX2_T0",
+      "video_id": "XJV4TMX2_T0",
+      "category": "device",
+      "published": "2026-01-17",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). LilyGO T-Deck. Andy Kirby runs meshcore.co.uk/MeshOS, separate from the meshcore.io core team."
+    },
+    {
+      "title": "Ready-Made Mesh, Done Right? RAK WisMesh Pocket V2 & Tag | MeshCore & Meshtastic",
+      "channel": "IterationX",
+      "channel_url": "https://www.youtube.com/@IterationX",
+      "url": "https://www.youtube.com/watch?v=Iu6WfyKES_M",
+      "video_id": "Iu6WfyKES_M",
+      "category": "device",
+      "published": "2026-08-18",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date)."
+    },
+    {
+      "title": "How to Build a MeshCore Observer with Heltec V3",
+      "channel": "Vivian Van Zyl (LoraMeshDevices.com)",
+      "channel_url": "https://www.youtube.com/@ViVSoftLLC",
+      "url": "https://www.youtube.com/watch?v=Vq86mr8kTR0",
+      "video_id": "Vq86mr8kTR0",
+      "category": "advanced",
+      "published": "2026-04-29",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Observer node (feeds packet data to maps/analyzers)."
+    },
+    {
+      "title": "MeshCore Room Server Observer Flash & Setup",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=8ABGCAx8Oig",
+      "video_id": "8ABGCAx8Oig",
+      "category": "advanced",
+      "published": "2026-04-17",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date)."
+    },
+    {
+      "title": "Find the Best Repeater Site for MeshCore and Meshtastic | MeshPeaks",
+      "channel": "IterationX",
+      "channel_url": "https://www.youtube.com/@IterationX",
+      "url": "https://www.youtube.com/watch?v=Xqy5cRqZKdU",
+      "video_id": "Xqy5cRqZKdU",
+      "category": "advanced",
+      "published": "2026-10-26",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Repeater site planning with the MeshPeaks tool."
+    },
+    {
+      "title": "Know Nothing About MeshCore? Start Here",
+      "channel": "Dude Tested",
+      "channel_url": "https://www.youtube.com/@DudeTested",
+      "url": "https://www.youtube.com/watch?v=XXWl8v6Jvk4",
+      "video_id": "XXWl8v6Jvk4",
+      "category": "intro",
+      "published": "2026-10-12",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Beginner orientation: what MeshCore is, what to buy, first steps."
+    },
+    {
+      "title": "Set Up MeshCore in 15 Minutes | Emergency Communication System",
+      "channel": "IronCabin",
+      "channel_url": "https://www.youtube.com/@IronCabin",
+      "url": "https://www.youtube.com/watch?v=TDBkIk2LsPk",
+      "video_id": "TDBkIk2LsPk",
+      "category": "intro",
+      "published": "2026-05-15",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Quick end-to-end beginner setup framed around emergency comms."
+    },
+    {
+      "title": "New to Meshcore? Here Are Your BEST Beginner Options!",
+      "channel": "Ham Radio DX",
+      "channel_url": "https://www.youtube.com/@HamRadioDX",
+      "url": "https://www.youtube.com/watch?v=DjAvL1mFl-U",
+      "video_id": "DjAvL1mFl-U",
+      "category": "intro",
+      "published": "2026-04-20",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Beginner device/options roundup from an Australian ham channel; hardware advice applies in the U.S. but check 915 MHz region settings."
+    },
+    {
+      "title": "What's The Deal With Meshcore?",
+      "channel": "saveitforparts",
+      "channel_url": "https://www.youtube.com/@saveitforparts",
+      "url": "https://www.youtube.com/watch?v=symxTRIKXbo",
+      "video_id": "symxTRIKXbo",
+      "category": "intro",
+      "published": "2026-09-04",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Large general tech/salvage channel; skeptical first look at MeshCore for a mainstream audience."
+    },
+    {
+      "title": "MeshCore Presentation for ARES Emergency Comms",
+      "channel": "Dixie Amateur Radio Club",
+      "channel_url": "https://www.youtube.com/@W7DRC",
+      "url": "https://www.youtube.com/watch?v=5IODdQo2hR0",
+      "video_id": "5IODdQo2hR0",
+      "category": "intro",
+      "published": "2026-08-12",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Recorded club presentation (Dixie Amateur Radio Club, W7DRC, Utah) on MeshCore for ARES emergency comms; example of a regional club's intro."
+    },
+    {
+      "title": "Meshtastic vs Meshcore vs Reticulum vs ATAK",
+      "channel": "Ham Radio 2.0",
+      "channel_url": "https://www.youtube.com/@HamRadio2",
+      "url": "https://www.youtube.com/watch?v=2YdCtrmKgWk",
+      "video_id": "2YdCtrmKgWk",
+      "category": "vs",
+      "published": "2026-04-01",
+      "verified_by": "oembed",
+      "notes": "Premiered; date from watch page. Four-way comparison including Reticulum and ATAK."
+    },
+    {
+      "title": "Meshcore vs. Meshtastic: Key Differences Explained",
+      "channel": "Vivian Van Zyl (LoraMeshDevices.com)",
+      "channel_url": "https://www.youtube.com/@ViVSoftLLC",
+      "url": "https://www.youtube.com/watch?v=tXoAhebQc0c",
+      "video_id": "tXoAhebQc0c",
+      "category": "vs",
+      "published": "2025-07-02",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Older than most picks; firmware/app features have changed since, but the architectural differences still apply."
+    },
+    {
+      "title": "Grid-Down Texting for LDS Wards & Stakes: MeshCore vs Meshtastic vs HAM Radio",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=vq2MUQ8deb4",
+      "video_id": "vq2MUQ8deb4",
+      "category": "vs",
+      "published": "2026-06-21",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Compares MeshCore, Meshtastic and ham radio for grid-down texting; faith/preparedness framing aimed at church groups."
+    },
+    {
+      "title": "MeshCore App",
+      "channel": "The Comms Channel",
+      "channel_url": "https://www.youtube.com/@The_Comms_Channel",
+      "url": "https://www.youtube.com/watch?v=PeThXmxLE4k",
+      "video_id": "PeThXmxLE4k",
+      "category": "setup",
+      "published": "2026-02-27",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Part of The Comms Channel's MeshCore QuickStart playlist; tour of the official MeshCore companion app."
+    },
+    {
+      "title": "MeshCore Tips FAQ",
+      "channel": "The Comms Channel",
+      "channel_url": "https://www.youtube.com/@The_Comms_Channel",
+      "url": "https://www.youtube.com/watch?v=s0OLSexb5s0",
+      "video_id": "s0OLSexb5s0",
+      "category": "setup",
+      "published": "2026-06-05",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). FAQ-style tips for new users (paths, flood vs direct, common mistakes)."
+    },
+    {
+      "title": "IMPORTANT! MeshCore Companion Node Backup: Export & Import Config",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=uOEQHQPmam0",
+      "video_id": "uOEQHQPmam0",
+      "category": "setup",
+      "published": "2026-06-01",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Export/import of companion config so a re-flash does not lose contacts and keys."
+    },
+    {
+      "title": "MeshCore Deep-Dive: Channels and Group-chat",
+      "channel": "StuckInStateSpace",
+      "channel_url": "https://www.youtube.com/@stuckinstatespace",
+      "url": "https://www.youtube.com/watch?v=wdQ6CvAJTXY",
+      "video_id": "wdQ6CvAJTXY",
+      "category": "setup",
+      "published": "2026-10-17",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Explains how MeshCore channels and group chat actually work under the hood; part of a 2026 deep-dive series."
+    },
+    {
+      "title": "MeshCore Companion Node Bulk Flash & Setup for Groups, Organizations & Churches",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=IKhBQ56SwvM",
+      "video_id": "IKhBQ56SwvM",
+      "category": "setup",
+      "published": "2026-10-23",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Flashing and configuring many companion nodes at once for a group or organization."
+    },
+    {
+      "title": "How To Setup A Meshcore Repeater (A Beginner's Guilde)",
+      "channel": "VA3BHY",
+      "channel_url": "https://www.youtube.com/@VA3BHY",
+      "url": "https://www.youtube.com/watch?v=P1np2ykf6ww",
+      "video_id": "P1np2ykf6ww",
+      "category": "repeater",
+      "published": "2026-09-04",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Beginner repeater setup from a Canadian (Ontario) ham; title typo 'Guilde' is in the original. Set region/frequency for the U.S. (915 MHz) rather than copying settings."
+    },
+    {
+      "title": "How to Flash a MeshCore Repeater",
+      "channel": "J-Rat Techworks",
+      "channel_url": "https://www.youtube.com/@J-Rat",
+      "url": "https://www.youtube.com/watch?v=w_jprAfrjjg",
+      "video_id": "w_jprAfrjjg",
+      "category": "repeater",
+      "published": "2026-05-10",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Straightforward repeater flashing walkthrough."
+    },
+    {
+      "title": "Update Your MeshCore Repeater Remotely! nRF52 OTA Firmware Guide",
+      "channel": "The Comms Channel",
+      "channel_url": "https://www.youtube.com/@The_Comms_Channel",
+      "url": "https://www.youtube.com/watch?v=rbx5Htf1mqk",
+      "video_id": "rbx5Htf1mqk",
+      "category": "repeater",
+      "published": "2026-08-20",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Over-the-air firmware updates for nRF52-based repeaters (RAK, Heltec T114 etc.) without climbing to the node."
+    },
+    {
+      "title": "How to update your MeshCore repeater using Bluetooth",
+      "channel": "Mesh America",
+      "channel_url": "https://www.youtube.com/@MeshAmerica",
+      "url": "https://www.youtube.com/watch?v=1ZXBNTYh5lI",
+      "video_id": "1ZXBNTYh5lI",
+      "category": "repeater",
+      "published": "2026-10-20",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Updating a deployed repeater over Bluetooth; U.S.-focused channel."
+    },
+    {
+      "title": "I Turned a $23 USB Stick Into a MeshCore Repeater (Elecrow MeshStick)",
+      "channel": "IterationX",
+      "channel_url": "https://www.youtube.com/@IterationX",
+      "url": "https://www.youtube.com/watch?v=i_oiOOPpW4Q",
+      "video_id": "i_oiOOPpW4Q",
+      "category": "repeater",
+      "published": "2026-10-28",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Elecrow MeshStick USB-stick repeater; cheap entry-level repeater hardware."
+    },
+    {
+      "title": "How to assemble & flash a Heltec V4 for Mesh Core",
+      "channel": "VMARC or Virginia Mountain Amateur Radio Club",
+      "channel_url": "https://www.youtube.com/@w4cov",
+      "url": "https://www.youtube.com/watch?v=dK7tYbWNETw",
+      "video_id": "dK7tYbWNETw",
+      "category": "repeater",
+      "published": "2026-10-11",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). From the Virginia Mountain Amateur Radio Club (W4COV); example of a U.S. regional club's hands-on Heltec V4 flashing guide."
+    },
+    {
+      "title": "Build Your OffGrid Meshcore Solar Node Repeater. Join The Mesh. SUPER EASY.",
+      "channel": "VA3BHY",
+      "channel_url": "https://www.youtube.com/@VA3BHY",
+      "url": "https://www.youtube.com/watch?v=BblpE_IlpD0",
+      "video_id": "BblpE_IlpD0",
+      "category": "solar",
+      "published": "2026-09-17",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Simple solar repeater build; Canadian creator, so verify U.S. region/frequency settings."
+    },
+    {
+      "title": "The easiest Meshtastic/MeshCore solar repeater build.",
+      "channel": "Ben Allfree",
+      "channel_url": "https://www.youtube.com/@benallfree",
+      "url": "https://www.youtube.com/watch?v=9dhQX9REdWM",
+      "video_id": "9dhQX9REdWM",
+      "category": "solar",
+      "published": "2026-10-08",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Minimal-parts solar repeater build."
+    },
+    {
+      "title": "This Solar Node Solved My RV Meshcore Problem - Elecrow M6 Solar Repeater",
+      "channel": "KM4ACK",
+      "channel_url": "https://www.youtube.com/@KM4ACK",
+      "url": "https://www.youtube.com/watch?v=AJ0XAEiqH2Q",
+      "video_id": "AJ0XAEiqH2Q",
+      "category": "solar",
+      "published": "2026-08-07",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Elecrow M6 ready-made solar repeater used from an RV; well-known U.S. ham channel (KM4ACK)."
+    },
+    {
+      "title": "MeshCore Flash & Setup of RAKWireless Wismesh Solar Mini Repeater",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=5RI015eAuPA",
+      "video_id": "5RI015eAuPA",
+      "category": "solar",
+      "published": "2026-04-16",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). RAK WisMesh Solar Mini off-the-shelf solar repeater: flash and setup."
+    },
+    {
+      "title": "Heltec T114 | Building a Pocket Sized nRF MeshCore Companion | Meshtastic",
+      "channel": "IterationX",
+      "channel_url": "https://www.youtube.com/@IterationX",
+      "url": "https://www.youtube.com/watch?v=BCtQB9s032Y",
+      "video_id": "BCtQB9s032Y",
+      "category": "device",
+      "published": "2026-07-10",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Heltec T114 (nRF52) companion build."
+    },
+    {
+      "title": "WisMesh Pocket v2 MeshCore Flash & Setup",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=czs-Ul1EJyI",
+      "video_id": "czs-Ul1EJyI",
+      "category": "device",
+      "published": "2026-04-14",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). RAK WisMesh Pocket V2 flash and setup."
+    },
+    {
+      "title": "MeshCore Sensors Tutorial: Setting Up the T1000E Node",
+      "channel": "Vivian Van Zyl (LoraMeshDevices.com)",
+      "channel_url": "https://www.youtube.com/@ViVSoftLLC",
+      "url": "https://www.youtube.com/watch?v=vOiujRQaMDE",
+      "video_id": "vOiujRQaMDE",
+      "category": "device",
+      "published": "2026-03-11",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Seeed SenseCAP T1000-E as a MeshCore node, including sensor telemetry."
+    },
+    {
+      "title": "MCLite Install Guide: MeshCore Firmware for the T-Deck Plus (Game Changer)",
+      "channel": "Dude Tested",
+      "channel_url": "https://www.youtube.com/@DudeTested",
+      "url": "https://www.youtube.com/watch?v=40ryDfsgG6Q",
+      "video_id": "40ryDfsgG6Q",
+      "category": "device",
+      "published": "2026-08-22",
+      "verified_by": "oembed",
+      "notes": "date from watch page. MCLite firmware on the LilyGO T-Deck Plus (community firmware, separate from MeshOS)."
+    },
+    {
+      "title": "MeshCore Explained: which companion should I buy?",
+      "channel": "StuckInStateSpace",
+      "channel_url": "https://www.youtube.com/@stuckinstatespace",
+      "url": "https://www.youtube.com/watch?v=ZGD-gI-HmCw",
+      "video_id": "ZGD-gI-HmCw",
+      "category": "device",
+      "published": "2026-10-13",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Buyer's guide to companion devices (Heltec, RAK, Seeed, LilyGO), with trade-offs explained."
+    },
+    {
+      "title": "URGENT, DO THIS NOW! - How & Why To Set Regions for a MeshCore Repeater in the Intermountain West",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=qzr_fOs1UoQ",
+      "video_id": "qzr_fOs1UoQ",
+      "category": "regions",
+      "published": "2026-09-16",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Why and how to set repeater region scoping; example uses the Intermountain West (Utah/Idaho) regions but the method applies to any U.S. region."
+    },
+    {
+      "title": "Meshcore Repeater: Set Your Regional Network Settings Properly",
+      "channel": "VA3BHY",
+      "channel_url": "https://www.youtube.com/@VA3BHY",
+      "url": "https://www.youtube.com/watch?v=IUg6Mw638Ao",
+      "video_id": "IUg6Mw638Ao",
+      "category": "regions",
+      "published": "2026-09-11",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Setting a repeater's regional network settings correctly; Canadian creator, same mechanism in the U.S."
+    },
+    {
+      "title": "MeshCore Regions Overview! - January 2026",
+      "channel": "104's UKCBTV",
+      "channel_url": "https://www.youtube.com/@104s_UKCBTV",
+      "url": "https://www.youtube.com/watch?v=2LPwjfuCr3Y",
+      "video_id": "2LPwjfuCr3Y",
+      "category": "regions",
+      "published": "2026-01-25",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). UK channel; general explainer of the MeshCore regions feature as of firmware v1.11-era (January 2026). Region names shown are UK ones."
+    },
+    {
+      "title": "Improving Performance in Busy MeshCore Networks",
+      "channel": "MeshOS",
+      "channel_url": "https://www.youtube.com/@meshcore-meshos",
+      "url": "https://www.youtube.com/watch?v=USeL981tCWY",
+      "video_id": "USeL981tCWY",
+      "category": "regions",
+      "published": "2026-04-26",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). From the MeshOS channel (Andy Kirby's meshcore.co.uk / MeshOS project, separate from the meshcore.io core team). Covers reducing traffic on busy meshes."
+    },
+    {
+      "title": "MeshCore Wardriving - MeshMapper",
+      "channel": "Darryl Downey (VA7DDU)",
+      "channel_url": "https://www.youtube.com/@darryldowney",
+      "url": "https://www.youtube.com/watch?v=WlCpPShSOu8",
+      "video_id": "WlCpPShSOu8",
+      "category": "advanced",
+      "published": "2026-03-12",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Wardriving/coverage mapping with the MeshMapper tool; Canadian (BC) creator."
+    },
+    {
+      "title": "Wardriving Meshcore Across North Texas | Off-Grid Network in Action",
+      "channel": "Ham Radio 2.0",
+      "channel_url": "https://www.youtube.com/@HamRadio2",
+      "url": "https://www.youtube.com/watch?v=CW9lhk7dkKc",
+      "video_id": "CW9lhk7dkKc",
+      "category": "advanced",
+      "published": "2026-07-27",
+      "verified_by": "oembed",
+      "notes": "Premiered; date from watch page. Wardriving a U.S. regional mesh (North Texas) and what the live map shows."
+    },
+    {
+      "title": "MeshCore Deep-Dive: Requests & Room Servers",
+      "channel": "StuckInStateSpace",
+      "channel_url": "https://www.youtube.com/@stuckinstatespace",
+      "url": "https://www.youtube.com/watch?v=zer-1Xlf0MA",
+      "video_id": "zer-1Xlf0MA",
+      "category": "advanced",
+      "published": "2026-10-20",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). How requests and room servers work in the protocol; part of a 2026 deep-dive series."
+    },
+    {
+      "title": "Is Your Meshcore / Meshtastic Range Bad? | dB & Link Budget",
+      "channel": "IterationX",
+      "channel_url": "https://www.youtube.com/@IterationX",
+      "url": "https://www.youtube.com/watch?v=36P6zC7AB_w",
+      "video_id": "36P6zC7AB_w",
+      "category": "advanced",
+      "published": "2026-08-29",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). RF fundamentals (dB, link budget) applied to MeshCore/Meshtastic range problems."
+    },
+    {
+      "title": "How To Set Repeater Paths in Meshcore for Private Encrypted Off-Grid Texting",
+      "channel": "LDSPrepper",
+      "channel_url": "https://www.youtube.com/@LDSPrepper",
+      "url": "https://www.youtube.com/watch?v=iNBFKK5aYWI",
+      "video_id": "iNBFKK5aYWI",
+      "category": "advanced",
+      "published": "2026-02-14",
+      "verified_by": "oembed",
+      "notes": "date from watch page. Manually setting repeater paths for direct messages."
+    },
+    {
+      "title": "Meshtastic & MeshCore Just Got MUCH More Useful",
+      "channel": "Ham Radio DX",
+      "channel_url": "https://www.youtube.com/@HamRadioDX",
+      "url": "https://www.youtube.com/watch?v=m2m-4iXngG4",
+      "video_id": "m2m-4iXngG4",
+      "category": "advanced",
+      "published": "2026-10-04",
+      "verified_by": "oembed",
+      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Covers a new capability for both projects (October 2026); contents not independently reviewed."
+    }
+  ],
+  "channels": [
+    {
+      "name": "andy kirby",
+      "url": "https://www.youtube.com/@andykirby",
+      "why": "Long-running MeshCore coverage (getting started, switching from Meshtastic, T-Deck/MeshOS, devices). Runs meshcore.co.uk and the MeshOS project (also the 'MeshOS' YouTube channel), which is separate from the meshcore.io core team after the 2026 split. Also posts non-MeshCore tech (drones, e-bikes, batteries).",
+      "example_video": "https://www.youtube.com/watch?v=t1qne8uJBAc"
+    },
+    {
+      "name": "The Comms Channel",
+      "url": "https://www.youtube.com/@The_Comms_Channel",
+      "why": "Frequent MeshCore tutorials: 9-part QuickStart playlist, repeater flashing/config, nRF52 OTA updates, client repeat mode, release overviews (e.g. 1.16.0).",
+      "example_video": "https://www.youtube.com/watch?v=axMCA7GTvt0"
+    },
+    {
+      "name": "LDSPrepper",
+      "url": "https://www.youtube.com/@LDSPrepper",
+      "why": "Very frequent MeshCore how-tos (companion flashing, backups, regions, contacts, private channels, room server/observer); 14 of last 15 uploads are MeshCore. Faith/preparedness framing aimed at church groups.",
+      "example_video": "https://www.youtube.com/watch?v=4HA-CqbUCZE"
+    },
+    {
+      "name": "Ham Radio DX",
+      "url": "https://www.youtube.com/@HamRadioDX",
+      "why": "Multiple MeshCore videos: app walkthrough, solar repeater build, range tips.",
+      "example_video": "https://www.youtube.com/watch?v=hdri8JJZtAw"
+    },
+    {
+      "name": "IterationX",
+      "url": "https://www.youtube.com/@IterationX",
+      "why": "Regular MeshCore/Meshtastic hardware reviews and builds, RF range/link-budget explainers, MeshPeaks site-planning tool.",
+      "example_video": "https://www.youtube.com/watch?v=Xqy5cRqZKdU"
+    },
+    {
+      "name": "Mesh America",
+      "url": "https://www.youtube.com/@MeshAmerica",
+      "why": "U.S. channel posting frequent MeshCore repeater builds, weatherization and update tips (many are Shorts).",
+      "example_video": "https://www.youtube.com/watch?v=tzdvjHSM0nM"
+    },
+    {
+      "name": "zerofox3D",
+      "url": "https://www.youtube.com/@zerofox3d",
+      "why": "Solar repeater and node enclosure builds/assembly guides for MeshCore & Meshtastic (creator's own 3D-printed designs).",
+      "example_video": "https://www.youtube.com/watch?v=GUFPiUj0rm4"
+    },
+    {
+      "name": "Ham Radio 2.0",
+      "url": "https://www.youtube.com/@HamRadio2",
+      "why": "Large U.S. ham channel (Texas) with regular MeshCore content: app deep dive, DIY solar repeater stream, North Texas wardriving, comparison videos, coverage of the 2026 project split.",
+      "example_video": "https://www.youtube.com/watch?v=cqCtyrPX2Yc"
+    },
+    {
+      "name": "Ham Radio Crash Course",
+      "url": "https://www.youtube.com/@HamRadioCrashCourse",
+      "why": "One of the biggest ham-radio channels; MeshCore intro build plus a stealth repeater build. Good for first-timers coming from ham radio.",
+      "example_video": "https://www.youtube.com/watch?v=AJERyIUmisI"
+    },
+    {
+      "name": "Lon.TV",
+      "url": "https://www.youtube.com/@LonSeidman",
+      "why": "Mainstream consumer-tech reviewer (U.S.); MeshCore vs Meshtastic explainer and ready-made device roundups aimed at non-hobbyists.",
+      "example_video": "https://www.youtube.com/watch?v=dhdWNXGGeE8"
+    },
+    {
+      "name": "StuckInStateSpace",
+      "url": "https://www.youtube.com/@stuckinstatespace",
+      "why": "October 2026 'MeshCore Deep-Dive' series explaining how the protocol actually works (channels, DMs/path discovery, room servers) plus a companion buyer's guide.",
+      "example_video": "https://www.youtube.com/watch?v=wdQ6CvAJTXY"
+    },
+    {
+      "name": "VA3BHY",
+      "url": "https://www.youtube.com/@VA3BHY",
+      "why": "Ontario ham posting beginner-friendly repeater, solar node and regional-settings videos in late 2026. Canadian, so double-check U.S. region/frequency settings.",
+      "example_video": "https://www.youtube.com/watch?v=P1np2ykf6ww"
+    },
+    {
+      "name": "Vivian Van Zyl (LoraMeshDevices.com)",
+      "url": "https://www.youtube.com/@ViVSoftLLC",
+      "why": "Device builds and tutorials (observer on Heltec V3, T1000-E sensors, Heltec V4) alongside a lot of Meshtastic content; sells devices via LoraMeshDevices.com.",
+      "example_video": "https://www.youtube.com/watch?v=Vq86mr8kTR0"
+    },
+    {
+      "name": "Dude Tested",
+      "url": "https://www.youtube.com/@DudeTested",
+      "why": "Recent (2026) beginner-oriented MeshCore videos: 'Start Here' orientation and T-Deck Plus MCLite install.",
+      "example_video": "https://www.youtube.com/watch?v=XXWl8v6Jvk4"
+    },
+    {
+      "name": "104's UKCBTV",
+      "url": "https://www.youtube.com/@104s_UKCBTV",
+      "why": "UK channel with several short, practical MeshCore how-tos on regions/regional scope (app OTA, CLI, PC terminal) and busy-mesh tuning. UK region names, same mechanism in the U.S.",
+      "example_video": "https://www.youtube.com/watch?v=2LPwjfuCr3Y"
+    }
+  ]
+}

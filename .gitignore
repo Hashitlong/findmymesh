@@ -1,0 +1,5 @@
+node_modules/
+site/dist/
+site/artifact-index.html
+site/shot-*.png
+__pycache__/

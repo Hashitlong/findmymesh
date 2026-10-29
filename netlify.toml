@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "site/dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/items"
+  to = "https://mm-amazon-api-v2.netlify.app/api/v2/items"
+  status = 200
+  force = true

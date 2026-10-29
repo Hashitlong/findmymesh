@@ -1,0 +1,680 @@
+{
+ "checked": "2026-10-28",
+ "what_is": {
+  "title": "What is MeshCore?",
+  "paragraphs": [
+   "MeshCore is free software for sending text messages over LoRa radios. LoRa is a long-range, low-power radio technology. MeshCore radios form a mesh, so a message can pass through other radios to reach people beyond direct range. It keeps working when WiFi, cellular service and the internet are down.",
+   "To start, you need a supported LoRa radio and the MeshCore app. The app runs on Android, iOS, Windows, Mac, Linux and the web. Your radio links to the app over Bluetooth or USB.",
+   "Each radio runs firmware for one role. A companion is your personal radio that connects to the app. A repeater sits in a high spot and forwards packets to extend the network's range. A room server stores posts like a small bulletin board, so people can read posts they missed. A sensor role also exists for remote telemetry and alerts. Sensor firmware is not pre-built, so it takes some programming to set up.",
+   "Direct messages are end-to-end encrypted. The firmware is released under the MIT license. The official MeshCore app and the T-Deck firmware are free to use, with optional paid unlocks for some advanced features, and the project FAQ says they are not open source. In the United States, MeshCore uses the 902 to 928 MHz ISM band, often called 915 MHz. The suggested U.S. setting is 910.525 MHz."
+  ],
+  "sources": [
+   {
+    "title": "MeshCore official site",
+    "url": "https://meshcore.io/"
+   },
+   {
+    "title": "MeshCore FAQ (docs site)",
+    "url": "https://docs.meshcore.io/faq/"
+   },
+   {
+    "title": "MeshCore FAQ (GitHub source)",
+    "url": "https://github.com/meshcore-dev/MeshCore/blob/main/docs/faq.md"
+   },
+   {
+    "title": "MeshCore README",
+    "url": "https://github.com/meshcore-dev/MeshCore/blob/main/README.md"
+   },
+   {
+    "title": "MeshCore license file (MIT)",
+    "url": "https://github.com/meshcore-dev/MeshCore/blob/main/license.txt"
+   },
+   {
+    "title": "Sensor Node Intro (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2026/09/14/sensor-intro"
+   },
+   {
+    "title": "MeshCore Quick Start Guide (PDF, Liam Cottle)",
+    "url": "https://files.liamcottle.net/MeshCore/Documentation/MeshCore_Quick_Start_Guide.pdf"
+   },
+   {
+    "title": "RDUMesh Repeater Host FAQ (community, for the 902-928 MHz ISM band)",
+    "url": "https://rdumesh.org/repeater-host-faq/"
+   }
+  ]
+ },
+ "vs_meshtastic": {
+  "title": "MeshCore vs Meshtastic",
+  "intro": "MeshCore and Meshtastic both send text messages over LoRa radios with no internet. They make different choices about which radios relay messages and how far messages can travel. The table compares only what each project documents.",
+  "rows": [
+   {
+    "topic": "Routing",
+    "meshcore": "Channel messages always flood through repeaters. A direct message floods the first time, then the reply records the path, and later messages follow that path. If the path breaks, the app falls back to flooding.",
+    "meshtastic": "Broadcasts use managed flooding: a node waits briefly and skips its rebroadcast if it hears another node relay first. Since version 2.6, direct messages flood first, then use next-hop routing, with managed flooding as a fallback."
+   },
+   {
+    "topic": "Who relays messages",
+    "meshcore": "Only repeaters relay (and room servers with repeat turned on). Companion radios do not relay. An optional Companion Repeat Mode exists, limited to special off-grid radio settings.",
+    "meshtastic": "The default CLIENT role rebroadcasts packets when no other node has done so. The ROUTER role (and the older REPEATER role, deprecated since firmware 2.7.11) always rebroadcasts. CLIENT_MUTE does not forward."
+   },
+   {
+    "topic": "Hop limit",
+    "meshcore": "Up to 64 hops with 1-byte path hashes, 32 with 2-byte, and 21 with 3-byte. Repeater owners can set a lower flood limit.",
+    "meshtastic": "Default is 3 hops. The maximum is 7."
+   },
+   {
+    "topic": "Routine broadcasts",
+    "meshcore": "Companions send an advert only when the user taps the button. Repeaters send flood adverts on a timer.",
+    "meshtastic": "NodeInfo every 3 hours by default. Device telemetry is off by default. Position broadcasts are on by default when a position is available: every 15 minutes, more often when moving (smart broadcast)."
+   },
+   {
+    "topic": "US radio settings",
+    "meshcore": "The app's suggested USA preset is 910.525 MHz, 62.5 kHz bandwidth, SF7, CR5.",
+    "meshtastic": "The US region covers 902.0 to 928.0 MHz. The default modem preset is LONG_FAST. Nodes must share a preset to hear each other."
+   },
+   {
+    "topic": "Apps",
+    "meshcore": "MeshCore app for Android, iOS, Windows, Mac, Linux and web. Community clients include a Python CLI and a JavaScript library. Some LilyGO devices run standalone firmware with no phone.",
+    "meshtastic": "Android app, Apple app, a web client that runs in the browser, and a Python CLI."
+   },
+   {
+    "topic": "Hardware",
+    "meshcore": "Runs on many 433, 868 and 915 MHz LoRa boards. Examples include RAK4631, Heltec V3, Heltec T114, Station G2, Nano G2 Ultra, Seeed T1000-E, Wio Tracker L1 and LilyGO T-Deck.",
+    "meshtastic": "Runs on a wide range of boards. Its listed favorites include RAK4631, Seeed T1000-E, Seeed Wio Tracker L1, Heltec T114, Nano G2 Ultra and Station G2. Many boards appear on both lists."
+   },
+   {
+    "topic": "Can they talk to each other?",
+    "meshcore": "No interoperability with Meshtastic is documented. MeshCore uses its own packet format.",
+    "meshtastic": "No interoperability with MeshCore is documented. Meshtastic packets use Protocol Buffers and their own header and sync word."
+   },
+   {
+    "topic": "Licensing",
+    "meshcore": "Firmware is MIT licensed. The official app is freemium and, per the FAQ, not open source.",
+    "meshtastic": "Describes itself as 100% community driven and open source. Software components use various licenses listed on GitHub."
+   },
+   {
+    "topic": "Typical use",
+    "meshcore": "The project lists off-grid communication, emergency response, outdoor activities and sensor networks. Its design relies on fixed repeaters in high places.",
+    "meshtastic": "The project describes off-grid communication where infrastructure is missing or unreliable. It lists decentralized communication with no dedicated router required."
+   }
+  ],
+  "paragraphs": [
+   "MeshCore fits best where fixed repeaters already exist, or where people want to build a network of them on rooftops and hills. Only repeaters relay, which keeps phones and handhelds from filling the airwaves as a network grows. The trade-off is that a companion radio on its own does not relay for others. With no repeaters nearby, you can reach only people in direct range, unless your group uses Companion Repeat Mode on an off-grid setting.",
+   "Meshtastic fits groups that move around together with no fixed infrastructure. Because client radios can relay by default, a handful of radios can form a mesh on their own. Its hop limit is lower, with a default of 3 and a maximum of 7. Community groups such as Austin Mesh report that this limit can be tight across a large metro area.",
+   "The most useful test is what people near you run. Neither project documents a way to exchange messages with the other, so you need the same firmware as your neighbors. Many U.S. groups, including Austin Mesh, NashMesh and PugetMesh, publish setup guides for both, and some now focus new deployments on MeshCore. Check your local group before you buy or flash a radio."
+  ],
+  "sources": [
+   {
+    "title": "MeshCore FAQ (routing, repeating, hop limit, hardware, open source)",
+    "url": "https://docs.meshcore.io/faq/"
+   },
+   {
+    "title": "MeshCore CLI Commands (flood.max, path.hash.mode)",
+    "url": "https://docs.meshcore.io/cli_commands/"
+   },
+   {
+    "title": "MeshCore official site (apps, hardware)",
+    "url": "https://meshcore.io/"
+   },
+   {
+    "title": "MeshCore README (clients, use cases, license)",
+    "url": "https://github.com/meshcore-dev/MeshCore/blob/main/README.md"
+   },
+   {
+    "title": "MeshCore Philosophy (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2025/03/01/meshcore-philosophy"
+   },
+   {
+    "title": "Companion Repeat Mode with the Wio Tracker L1 Pro (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2026/10/23/repeat-mode-tracker-l1-pro"
+   },
+   {
+    "title": "MeshCore suggested radio presets (app API)",
+    "url": "https://api.meshcore.nz/api/v1/config"
+   },
+   {
+    "title": "Meshtastic: Introduction",
+    "url": "https://meshtastic.org/docs/introduction/"
+   },
+   {
+    "title": "Meshtastic: Mesh Broadcast Algorithm",
+    "url": "https://meshtastic.org/docs/overview/mesh-algo/"
+   },
+   {
+    "title": "Meshtastic: LoRa Configuration (Max Hops, US region, presets)",
+    "url": "https://meshtastic.org/docs/configuration/radio/lora/"
+   },
+   {
+    "title": "Meshtastic: Device Configuration (roles)",
+    "url": "https://meshtastic.org/docs/configuration/radio/device/"
+   },
+   {
+    "title": "Meshtastic: Software",
+    "url": "https://meshtastic.org/docs/software/"
+   },
+   {
+    "title": "Meshtastic: Supported Hardware",
+    "url": "https://meshtastic.org/docs/hardware/devices/"
+   },
+   {
+    "title": "Meshtastic: Licensing and Trademark",
+    "url": "https://meshtastic.org/docs/legal/licensing-and-trademark/"
+   },
+   {
+    "title": "Austin Mesh: MeshCore vs Meshtastic (community)",
+    "url": "https://www.austinmesh.org/learn/meshcore-vs-meshtastic"
+   },
+   {
+    "title": "PugetMesh home, 'Which network is right for me?' (community)",
+    "url": "https://pugetmesh.org/"
+   },
+   {
+    "title": "NashMesh: What is MeshCore? (community)",
+    "url": "https://nashme.sh/getting-started/platforms/"
+   },
+   {
+    "title": "Meshtastic position configuration",
+    "url": "https://meshtastic.org/docs/configuration/radio/position/"
+   }
+  ]
+ },
+ "getting_started": {
+  "title": "Getting started in the US",
+  "intro": "These steps take you from no radio to your first message. They follow the official MeshCore guides, with US radio settings checked against the app's preset list. Your local group may use different settings, so check with them first.",
+  "steps": [
+   {
+    "title": "Buy a supported 915 MHz radio",
+    "text": "MeshCore runs on 433, 868 and 915 MHz LoRa boards, so pick the 915 MHz version for the US. The official site recommends companion radios such as the Wio Tracker L1 Pro, ThinkNode M1, Heltec V3, WisMesh Pocket and WisMesh Tag. The full list of supported devices is on the web flasher."
+   },
+   {
+    "title": "Install the MeshCore app",
+    "text": "Get the MeshCore app by Liam Cottle from Google Play or the App Store, or download it for Windows, Mac or Linux from meshcore.io. A web version runs at app.meshcore.nz. The official guide suggests keeping an offline copy for when the internet is down."
+   },
+   {
+    "title": "Flash companion firmware",
+    "text": "Open flasher.meshcore.io in Chrome or Edge on a desktop computer, since the flasher needs the Web Serial API. Choose your device, pick the Bluetooth companion role, plug in the radio by USB, and click Flash. Do not run a full erase when you are only updating, because that wipes your radio's identity."
+   },
+   {
+    "title": "Pair over Bluetooth",
+    "text": "Turn on the radio, open the app and tap Connect. Pick the MeshCore-XXXX device that matches your radio. Enter the PIN shown on the radio's screen, or 123456 if it has no screen."
+   },
+   {
+    "title": "Set your display name",
+    "text": "Tap the settings icon, enter the name you want others to see, and tap the tick icon to save. The Bluetooth device name updates after you reboot the radio."
+   },
+   {
+    "title": "Choose the US radio preset",
+    "text": "In settings, tap Choose Preset under radio settings and pick the US preset, then save. The MeshCore FAQ lists the USA/Canada (Recommended) preset as 910.525 MHz, SF7, BW 62.5 kHz, CR5. Every radio on your local mesh must use the same frequency, bandwidth and spreading factor."
+   },
+   {
+    "title": "Send your first message",
+    "text": "Open the channels tab, tap Public, and send a message. If a repeater heard you, the message shows Heard 1 repeat; with no repeater nearby it shows Sent. Many local groups also use hashtag channels such as #test for test messages, so check what your area uses."
+   },
+   {
+    "title": "Share your contact with an advert",
+    "text": "Before you can send private messages, you and the other person must add each other as contacts. You can scan each other's QR codes in person, or tap the signal icon and send a zero-hop or flood-routed advert. Community guides note that contacts can take a day or two to fill in. Adverts are not encrypted. They share your name and, if you set one, your location with everyone who hears them."
+   },
+   {
+    "title": "Add yourself to the map",
+    "text": "In the app, tap the three-dot menu, then Internet Map, then the three-dot menu again and choose Add me to the Map. You can remove your marker later from the same companion radio. This puts your location on a public website. Use an approximate spot unless you're comfortable with it being exact."
+   }
+  ],
+  "settings_note": "The preset values come from the MeshCore FAQ, which lists USA/Canada (Recommended) as 910.525 MHz, SF7, BW 62.5, CR5. The app's live preset list, checked 2026-10-28, has an entry titled USA with the same values, a separate Canada entry with the same radio values plus a 3-byte path hash, and a USA - Southern California entry at 927.875 MHz. The MeshCore docs call these presets community suggestions. Austin Mesh, NashMesh, PugetMesh and RDUMesh all publish 910.525 MHz, 62.5 kHz, SF7, CR5. Your local group may also recommend a path hash size or region scope, so ask them before you change anything else.",
+  "sources": [
+   {
+    "title": "MeshCore official site (hardware, apps, get started)",
+    "url": "https://meshcore.io/"
+   },
+   {
+    "title": "MeshCore FAQ (frequencies, presets, Bluetooth PIN, map)",
+    "url": "https://docs.meshcore.io/faq/"
+   },
+   {
+    "title": "MeshCore Radio Presets doc",
+    "url": "https://docs.meshcore.io/radio_presets/"
+   },
+   {
+    "title": "MeshCore suggested radio presets (app API, checked 2026-10-28)",
+    "url": "https://api.meshcore.nz/api/v1/config"
+   },
+   {
+    "title": "MeshCore web flasher (browser requirement message in app code)",
+    "url": "https://flasher.meshcore.io/"
+   },
+   {
+    "title": "MeshCore Quick Start Guide (PDF, Liam Cottle)",
+    "url": "https://files.liamcottle.net/MeshCore/Documentation/MeshCore_Quick_Start_Guide.pdf"
+   },
+   {
+    "title": "The MeshCore Map (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2026/04/04/meshcore-map"
+   },
+   {
+    "title": "Austin Mesh: MeshCore Setup (community)",
+    "url": "https://www.austinmesh.org/join/meshcore-setup/"
+   },
+   {
+    "title": "NashMesh: MeshCore Setup (community)",
+    "url": "https://nashme.sh/getting-started/meshcore/"
+   },
+   {
+    "title": "PugetMesh: Repeater Setup (community)",
+    "url": "https://pugetmesh.org/meshcore/repeater_setup/"
+   },
+   {
+    "title": "RDUMesh: Device Quick Start Guide (community)",
+    "url": "https://rdumesh.org/device-quick-start-guide/"
+   },
+   {
+    "title": "RDUMesh: Channels (community)",
+    "url": "https://rdumesh.org/rdumesh-channels/"
+   }
+  ]
+ },
+ "repeater_guide": {
+  "title": "Setting up a repeater",
+  "intro": "A repeater extends the range of a MeshCore network by forwarding packets toward their destination. It does not forward every packet it hears. Repeaters work best in high places, and many run on solar power. This guide covers flashing, configuration, security and placement.",
+  "sections": [
+   {
+    "heading": "Before you start",
+    "paragraphs": [
+     "Repeater firmware runs on the same boards as companion firmware. A radio running repeater firmware does not accept Bluetooth connections from the app, so you configure it over USB or manage it over the mesh.",
+     "Each repeater has its own identity key. Plan firmware updates before you mount it. On some nRF52 boards, including the Wio Tracker L1 Pro, the factory bootloader can't do Bluetooth updates, and the official flasher warns you to install the OTAFIX bootloader first. The flasher also recommends OTAFIX for other nRF52 boards such as the Heltec T114, T096 and T-Echo. Install it before the repeater goes up on a roof."
+    ],
+    "commands": []
+   },
+   {
+    "heading": "Flash the repeater firmware",
+    "paragraphs": [
+     "Open flasher.meshcore.io in Chrome or Edge on a desktop computer. Choose your device, pick the Repeater role, connect the board by USB and flash it. When flashing finishes, the flasher offers a Repeater Setup button that opens the USB configuration tool."
+    ],
+    "commands": []
+   },
+   {
+    "heading": "Configure over USB or remotely",
+    "paragraphs": [
+     "The easiest path is config.meshcore.io. Connect the repeater by USB and use the web page to set the name, frequency and radio settings, location, and passwords. The flasher's Console feature gives you a command line over USB as well.",
+     "After setup, you can manage the repeater over LoRa from the MeshCore app's Remote Management feature. Log in with the admin password to reach the command line and settings.",
+     "Set the radio first. The frequency must match your region before the app can manage the repeater over the air. For the US preset, the radio command below sets all four values at once. Radio changes take effect after a reboot.",
+     "Keep names short: the CLI reference limits them to 23 bytes when a location is set and 31 bytes without one. The FAQ also suggests choosing a repeater key whose first byte doesn't match other repeaters near you, so paths stay clear."
+    ],
+    "commands": [
+     {
+      "cmd": "set radio 910.525,62.5,7,5",
+      "what": "Sets frequency (MHz), bandwidth (kHz), spreading factor and coding rate in that order. Requires a reboot. Values shown are the US preset."
+     },
+     {
+      "cmd": "reboot",
+      "what": "Restarts the repeater so radio changes apply. No reply is sent."
+     },
+     {
+      "cmd": "get radio",
+      "what": "Shows the current radio settings so you can confirm them."
+     },
+     {
+      "cmd": "set name <name>",
+      "what": "Sets the repeater's advertised name. Community groups suggest a name that hints at the location."
+     },
+     {
+      "cmd": "set lat <degrees>",
+      "what": "Sets latitude in decimal degrees."
+     },
+     {
+      "cmd": "set lon <degrees>",
+      "what": "Sets longitude in decimal degrees. Location is optional but lets the repeater appear on the map."
+     },
+     {
+      "cmd": "set owner.info <text>",
+      "what": "Adds contact info for the owner. A | character becomes a new line. Requires firmware 1.12 or newer."
+     },
+     {
+      "cmd": "advert",
+      "what": "Sends a flood advert so other nodes learn about the repeater."
+     }
+    ]
+   },
+   {
+    "heading": "Change the default passwords",
+    "paragraphs": [
+     "Every repeater and room server ships with the admin password set to the word password. Anyone who knows that default can change your settings, so change it before you deploy. The admin password command echoes the new password back to confirm it.",
+     "The guest password works differently by role. On a repeater it gives limited access, for example to telemetry and owner info, and it is blank by default. On a room server it is the password people use to join, and the MeshCore FAQ lists its default as hello, so change it."
+    ],
+    "commands": [
+     {
+      "cmd": "password <new_password>",
+      "what": "Changes the admin password. The default is password."
+     },
+     {
+      "cmd": "set guest.password <password>",
+      "what": "Sets the guest password. On room servers this is the join password."
+     }
+    ]
+   },
+   {
+    "heading": "Transmit power",
+    "paragraphs": [
+     "The set tx command controls only the power of the LoRa chip. Some boards add an amplifier stage that raises the total output, so check your board's manual. The MeshCore docs warn that a value set too high may break the law in your country, and the FAQ warns that wrong settings on some high-power boards can damage the hardware. Community groups such as PugetMesh and RDUMesh say they keep repeaters at or under 1 watt. Some boards in the FAQ's own table go well above 1 watt, so don't read 1 watt as the legal limit. In the U.S., the rules for this band are in FCC Part 15 (47 CFR Part 15)."
+    ],
+    "commands": [
+     {
+      "cmd": "get tx",
+      "what": "Shows the current transmit power in dBm."
+     },
+     {
+      "cmd": "set tx <dbm>",
+      "what": "Sets the LoRa chip's transmit power, from 1 to 22 dBm."
+     }
+    ]
+   },
+   {
+    "heading": "Placement",
+    "paragraphs": [
+     "Height matters most. The MeshCore FAQ says to place a repeater high above ground, and the official site describes repeaters in high locations. Austin Mesh sums up its advice as height first, then antenna, then power.",
+     "Seeed Studio's guide on the MeshCore blog adds practical tips: pick an open spot, mount the node higher, keep a clear line of sight to other nodes, keep the antenna vertical, and keep it away from metal surfaces. PugetMesh suggests a roof or a mast above the roofline for repeaters with omnidirectional antennas."
+    ],
+    "commands": []
+   },
+   {
+    "heading": "Solar repeaters",
+    "paragraphs": [
+     "The official site promotes solar-powered repeaters in high places and lists the SenseCAP Solar Node P1 Pro as a repeater node. Seeed Studio reports about 9 km with the stock antenna on that node in an open test with clear line of sight.",
+     "Community builds are simple. PugetMesh lists a roughly $50 parts kit (prices as of September 2025): a XIAO nRF52840 with a Wio-SX1262 radio, an antenna, a small solar panel, a charge board, an IP65 enclosure and a 10,000 mAh battery. RDUMesh describes its nodes as a small waterproof box with a battery, a light antenna and one or two small solar panels, usually under two pounds.",
+     "Firmware before 1.18.0 included a low-voltage boot lockout on some nRF52 boards. The 1.18.0 release notes say it is now disabled on most nRF52 boards, so check the release notes for your board. Repeaters also have a power saving option that sleeps between transmissions."
+    ],
+    "commands": [
+     {
+      "cmd": "powersaving on",
+      "what": "Turns on power saving (repeater only). The device sleeps between radio transmissions. Default is off."
+     },
+     {
+      "cmd": "get pwrmgt.source",
+      "what": "Shows the current power source on boards with power management support."
+     }
+    ]
+   },
+   {
+    "heading": "Adverts, the map and updates",
+    "paragraphs": [
+     "A repeater sends flood adverts on a timer, set in hours between 3 and 168. The MeshCore FAQ says the default is 12 hours and the CLI reference says 47, so run get flood.advert.interval to see yours. Repeaters also stop forwarding other nodes' adverts after 8 hops by default.",
+     "To add the repeater to the MeshCore map, open Contacts in the app, tap the three-dot menu next to the repeater, tap Share, then Upload to Internet Map.",
+     "To update firmware over the air, log in as admin from the app and run start ota. On ESP32 boards this starts a Wi-Fi hotspot named MeshCore OTA where you upload the non-merged firmware file. On nRF52 boards you use Nordic's nRF Device Firmware Update app with the ZIP firmware file."
+    ],
+    "commands": [
+     {
+      "cmd": "get flood.advert.interval",
+      "what": "Shows how often, in hours, the repeater sends a flood advert."
+     },
+     {
+      "cmd": "set flood.advert.interval <hours>",
+      "what": "Sets the flood advert interval, from 3 to 168 hours."
+     },
+     {
+      "cmd": "start ota",
+      "what": "Puts the repeater into over-the-air update mode."
+     },
+     {
+      "cmd": "ver",
+      "what": "Shows the firmware version."
+     }
+    ]
+   },
+   {
+    "heading": "Community tuning (optional)",
+    "paragraphs": [
+     "Several US groups publish extra settings for repeaters. These are community advice, and the values differ between groups. For example, NashMesh recommends a 2-byte path hash and PugetMesh uses 3-byte. The MeshCore FAQ notes that repeaters on firmware older than 1.14 drop 2-byte and 3-byte packets, so follow your local group's lead. All of the commands below are documented in the official CLI reference."
+    ],
+    "commands": [
+     {
+      "cmd": "set multi.acks 1",
+      "what": "Turns on multi-acks. PugetMesh describes it as sending two acknowledgements instead of one. Austin Mesh, NashMesh and PugetMesh enable it to make remote admin more reliable."
+     },
+     {
+      "cmd": "set agc.reset.interval 4",
+      "what": "Resets the radio's automatic gain control every 4 seconds. The FAQ suggests this for repeaters that go deaf near strong interference."
+     },
+     {
+      "cmd": "set path.hash.mode 1",
+      "what": "Makes the repeater's own adverts use a 2-byte path hash (0 is 1-byte, 2 is 3-byte). It does not change which packets the repeater forwards. Requires firmware 1.14 or newer."
+     },
+     {
+      "cmd": "set loop.detect moderate",
+      "what": "Drops flood packets that appear to be looping. Requires firmware 1.14 or newer. The default became minimal in firmware 1.18.0 (it was off before). PugetMesh and NashMesh suggest moderate."
+     },
+     {
+      "cmd": "set flood.max <value>",
+      "what": "Limits how many hops a flood packet can have before this repeater stops forwarding it. Default is 64."
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "MeshCore FAQ (repeaters, passwords, location, OTA, transmit power)",
+    "url": "https://docs.meshcore.io/faq/"
+   },
+   {
+    "title": "MeshCore CLI Commands",
+    "url": "https://docs.meshcore.io/cli_commands/"
+   },
+   {
+    "title": "MeshCore CLI Commands (GitHub source)",
+    "url": "https://github.com/meshcore-dev/MeshCore/blob/main/docs/cli_commands.md"
+   },
+   {
+    "title": "MeshCore nRF52 Power Management doc",
+    "url": "https://github.com/meshcore-dev/MeshCore/blob/main/docs/nrf52_power_management.md"
+   },
+   {
+    "title": "MeshCore README (config.meshcore.io, remote management)",
+    "url": "https://github.com/meshcore-dev/MeshCore/blob/main/README.md"
+   },
+   {
+    "title": "MeshCore repeater and room server USB setup tool",
+    "url": "https://config.meshcore.io/"
+   },
+   {
+    "title": "MeshCore web flasher",
+    "url": "https://flasher.meshcore.io/"
+   },
+   {
+    "title": "MeshCore official site (solar repeaters, hardware)",
+    "url": "https://meshcore.io/"
+   },
+   {
+    "title": "Boost Your SenseCAP Solar P1 Signal (MeshCore blog, by Seeed Studio)",
+    "url": "https://blog.meshcore.io/2026/10/20/boost-sensecap-solar"
+   },
+   {
+    "title": "The MeshCore Map (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2026/04/04/meshcore-map"
+   },
+   {
+    "title": "PugetMesh: Repeater Setup (community)",
+    "url": "https://pugetmesh.org/meshcore/repeater_setup/"
+   },
+   {
+    "title": "NashMesh: MeshCore Setup (community)",
+    "url": "https://nashme.sh/getting-started/meshcore/"
+   },
+   {
+    "title": "Austin Mesh: MeshCore Setup (community)",
+    "url": "https://www.austinmesh.org/join/meshcore-setup/"
+   },
+   {
+    "title": "RDUMesh: Repeater Host FAQ (community)",
+    "url": "https://rdumesh.org/repeater-host-faq/"
+   },
+   {
+    "title": "MeshCore 1.18.0 release notes",
+    "url": "https://blog.meshcore.io/2026/10/15/release-1-18-0"
+   },
+   {
+    "title": "47 CFR Part 15 (eCFR)",
+    "url": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15"
+   }
+  ]
+ },
+ "glossary": {
+  "title": "MeshCore glossary",
+  "terms": [
+   {
+    "term": "Advert",
+    "definition": "A signed broadcast of a node's name, public key and (optionally) position that lets other nodes add it as a contact. Adverts are not encrypted."
+   },
+   {
+    "term": "Flood advert",
+    "definition": "An advert that repeaters pass along so it reaches beyond direct range. By default, repeaters stop forwarding adverts after 8 hops."
+   },
+   {
+    "term": "Zero-hop advert",
+    "definition": "An advert that only radios in direct range receive, because repeaters do not pass it on."
+   },
+   {
+    "term": "BLE",
+    "definition": "Bluetooth Low Energy, the Bluetooth link a companion radio uses to talk to the phone app."
+   },
+   {
+    "term": "BW (bandwidth)",
+    "definition": "How wide a slice of radio spectrum each transmission uses; the US preset uses 62.5 kHz."
+   },
+   {
+    "term": "Channel",
+    "definition": "A group chat secured by a shared key, where everyone who has the key can read and post."
+   },
+   {
+    "term": "Public channel",
+    "definition": "The default channel every MeshCore user starts with, which anyone on the mesh can read."
+   },
+   {
+    "term": "Hashtag channel",
+    "definition": "A public group channel with a name that starts with #, such as #test, which anyone on the mesh can create."
+   },
+   {
+    "term": "Companion",
+    "definition": "Your personal radio, running firmware that connects to the MeshCore app over Bluetooth or USB."
+   },
+   {
+    "term": "Companion Repeat Mode",
+    "definition": "An optional setting that lets a companion relay messages, limited to special off-grid radio settings."
+   },
+   {
+    "term": "Contact",
+    "definition": "A saved node in your app; you and another user must add each other as contacts before private messages work."
+   },
+   {
+    "term": "CR (coding rate)",
+    "definition": "How many extra error-correction bits each packet carries; the FAQ suggests CR5 for stable links."
+   },
+   {
+    "term": "Flasher",
+    "definition": "The web tool at flasher.meshcore.io that installs MeshCore firmware on a radio over USB."
+   },
+   {
+    "term": "Hop",
+    "definition": "One step a packet takes when a repeater passes it along."
+   },
+   {
+    "term": "ISM band",
+    "definition": "A shared radio band; in the US, MeshCore runs in the 902 to 928 MHz part of it."
+   },
+   {
+    "term": "LoRa",
+    "definition": "A long-range, low-power radio technology that MeshCore radios use to send packets."
+   },
+   {
+    "term": "MQTT",
+    "definition": "A message broker protocol that some nodes use to send the LoRa traffic they hear to an internet server for maps and analysis tools."
+   },
+   {
+    "term": "Observer",
+    "definition": "A node that reports the packets it hears to an analyzer service, helping map coverage."
+   },
+   {
+    "term": "Path (route)",
+    "definition": "The list of repeaters a message travels through; MeshCore learns it from the first delivery and reuses it for later messages."
+   },
+   {
+    "term": "Path hash (prefix bytes)",
+    "definition": "The first 1, 2 or 3 bytes of a repeater's public key, used to name that repeater inside a packet's path."
+   },
+   {
+    "term": "Region (scope)",
+    "definition": "A named area set on repeaters, so a sender can limit how far a flooded message travels."
+   },
+   {
+    "term": "Repeater",
+    "definition": "A node, usually mounted high, that forwards packets to extend the network's range."
+   },
+   {
+    "term": "Room server",
+    "definition": "A node that stores posts like a small bulletin board, so users can read messages they missed."
+   },
+   {
+    "term": "Sensor",
+    "definition": "A node type for remote telemetry and alerts that you build and customize from example code."
+   },
+   {
+    "term": "SF (spreading factor)",
+    "definition": "How long each radio symbol is stretched out; lower values send faster, and the US preset uses SF7."
+   }
+  ],
+  "sources": [
+   {
+    "title": "MeshCore FAQ",
+    "url": "https://docs.meshcore.io/faq/"
+   },
+   {
+    "title": "MeshCore CLI Commands",
+    "url": "https://docs.meshcore.io/cli_commands/"
+   },
+   {
+    "title": "MeshCore official site",
+    "url": "https://meshcore.io/"
+   },
+   {
+    "title": "MeshCore Quick Start Guide (PDF, Liam Cottle)",
+    "url": "https://files.liamcottle.net/MeshCore/Documentation/MeshCore_Quick_Start_Guide.pdf"
+   },
+   {
+    "title": "Region Filtering (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2026/01/20/region-filtering"
+   },
+   {
+    "title": "Default Scope Region (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2026/04/17/default-scope"
+   },
+   {
+    "title": "Sensor Node Intro (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2026/09/14/sensor-intro"
+   },
+   {
+    "title": "Companion Repeat Mode with the Wio Tracker L1 Pro (MeshCore blog)",
+    "url": "https://blog.meshcore.io/2026/10/23/repeat-mode-tracker-l1-pro"
+   },
+   {
+    "title": "MeshCore suggested radio presets (app API)",
+    "url": "https://api.meshcore.nz/api/v1/config"
+   },
+   {
+    "title": "Meshtastic: Device Configuration (BLE expansion)",
+    "url": "https://meshtastic.org/docs/configuration/radio/device/"
+   },
+   {
+    "title": "NashMesh: Setting up MQTT (community, MQTT and observers)",
+    "url": "https://nashme.sh/mqtt/"
+   },
+   {
+    "title": "NashMesh: MeshCore Setup (community, channels)",
+    "url": "https://nashme.sh/getting-started/meshcore/"
+   },
+   {
+    "title": "RDUMesh: Channels (community, hashtag channels)",
+    "url": "https://rdumesh.org/rdumesh-channels/"
+   },
+   {
+    "title": "RDUMesh: Repeater Host FAQ (community, 902-928 MHz ISM band)",
+    "url": "https://rdumesh.org/repeater-host-faq/"
+   }
+  ]
+ }
+}
