@@ -1,28 +1,182 @@
 {
   "owner": "Roger",
-  "intro": "Everything here has been on my bench, in my truck, or on a roof around Lake Norman. If I stopped using something, it comes off the list.",
+  "intro": "I've been running MeshCore since mid-2025. Everything here has been on my bench, in my truck, or on a roof around Lake Norman. If I stopped using something, it comes off the list.",
   "items": [
-    {"name": "LILYGO T-Deck Plus (915 MHz)", "category": "Companions", "amazon_url": "https://www.amazon.com/dp/B0DSFR1XW5?tag=findmymesh-20", "used_for": "Daily-carry companion; standalone chats without a phone", "verdict": "The one I grab most. Keyboard, GPS and a 2000 mAh battery in a handheld that can chat on its own screen. Bulky, and the stock antenna is only OK.", "tested_since": ""},
-    {"name": "Seeed SenseCAP T1000-E", "category": "Companions", "amazon_url": "https://www.amazon.com/dp/B0DJ6KGXKB?tag=findmymesh-20", "used_for": "Pocket companion paired to the phone", "verdict": "Credit-card size, IP65, built-in GPS and 700 mAh battery. No screen and no external antenna, so range is what it is. Easiest thing to hand a friend.", "tested_since": ""},
-    {"name": "Seeed Wio Tracker L1 Pro", "category": "Companions", "amazon_url": "https://www.amazon.com/dp/B0H2GRDBFL?tag=findmymesh-20", "used_for": "Rugged companion in the truck", "verdict": "nRF52840, GPS, OLED, case and battery already assembled. Sold flashed with MeshCore on this listing. Low power, long battery life, SMA antenna port.", "tested_since": ""},
-    {"name": "LILYGO T-Echo", "category": "Companions", "amazon_url": "https://www.amazon.com/dp/B0B659536P?tag=findmymesh-20", "used_for": "Low-power companion with e-paper", "verdict": "nRF52840 with a 1.54-inch e-paper screen and GPS. Battery sips. Screen is small and the buttons take getting used to.", "tested_since": ""},
-    {"name": "Elecrow ThinkNode M1", "category": "Companions", "amazon_url": "https://www.amazon.com/dp/B0FPLWYB8R?tag=findmymesh-20", "used_for": "Backup companion", "verdict": "nRF52840, 1.54-inch e-paper, GPS and a 1200 mAh battery in a finished case. Solid middle option between the T-Echo and the L1 Pro.", "tested_since": ""},
-    {"name": "Heltec WiFi LoRa 32 V3", "category": "Boards", "amazon_url": "https://www.amazon.com/dp/B0D1H1FN9Y?tag=findmymesh-20", "used_for": "First board, bench testing, cheap companions", "verdict": "The board everyone starts on. ESP32-S3, SX1262, OLED. Fine as a plugged-in companion or a mains-powered repeater; poor on battery.", "tested_since": ""},
-    {"name": "Heltec WiFi LoRa 32 V4", "category": "Boards", "amazon_url": "https://www.amazon.com/dp/B0FS1R4HXH?tag=findmymesh-20", "used_for": "Mains-powered repeater", "verdict": "Same footprint as the V3 with a higher-power radio, protected screen and a solar input on the board. Still an ESP32, so still hungry on battery.", "tested_since": ""},
-    {"name": "Heltec Mesh Node T114 (kit with case and battery)", "category": "Boards", "amazon_url": "https://www.amazon.com/dp/B0F3X3WNJP?tag=findmymesh-20", "used_for": "Battery repeater and companion", "verdict": "nRF52840 + SX1262 with battery and solar connectors on the board. Sips power. Good first repeater board if you want a screen.", "tested_since": ""},
-    {"name": "RAK WisBlock Mini Meshtastic Starter Kit (RAK4631, US915)", "category": "Boards", "amazon_url": "https://www.amazon.com/dp/B0DFMMTQZM?tag=findmymesh-20", "used_for": "Solar repeaters", "verdict": "The repeater board I trust on a roof. nRF52840 core on a WisBlock base, very low idle draw, battery and solar inputs. Ships with Meshtastic, so plan on reflashing.", "tested_since": ""},
-    {"name": "Seeed XIAO nRF52840 & Wio-SX1262 Kit", "category": "Boards", "amazon_url": "https://www.amazon.com/dp/B0FJWRHG8K?tag=findmymesh-20", "used_for": "Smallest repeater builds", "verdict": "Tiny, cheap, nRF52840. No screen, no battery, no case: a parts-bin board for people who like building.", "tested_since": ""},
-    {"name": "Seeed SenseCAP Solar Node P1-Pro (MeshCore)", "category": "Repeaters", "amazon_url": "https://www.amazon.com/dp/B0H2GSYN3B?tag=findmymesh-20", "used_for": "Drop-in solar repeater", "verdict": "Finished solar repeater: XIAO nRF52840, SX1262, GPS, 5 W panel and four 18650 cells in an IPX6 box. Costs more than a DIY build, saves a weekend.", "tested_since": ""},
-    {"name": "Waterproof 5.8 dBi 915 MHz fiberglass antenna (N-type)", "category": "Antennas", "amazon_url": "https://www.amazon.com/dp/B0GBSTPHKG?tag=findmymesh-20", "used_for": "Rooftop repeater antenna", "verdict": "The usual baseline for a fixed repeater. Check the included cable length and connector before you buy; you will likely need adapters.", "tested_since": ""},
-    {"name": "ALFA AOA-915-5ACM 5 dBi outdoor antenna", "category": "Antennas", "amazon_url": "https://www.amazon.com/dp/B08H8J6ZV6?tag=findmymesh-20", "used_for": "Compact outdoor antenna", "verdict": "Short, weatherproof, N-male. Good when you can't mount a long fiberglass stick.", "tested_since": ""},
-    {"name": "muzi works 17 cm 915 MHz whip (SMA)", "category": "Antennas", "amazon_url": "https://www.amazon.com/dp/B0D7D6866W?tag=findmymesh-20", "used_for": "Handheld and companion antenna", "verdict": "A real improvement over the stubby antennas that ship with most boards. Tuned for 915.", "tested_since": ""},
-    {"name": "N-type lightning arrestor (N-male / N-female)", "category": "Antennas", "amazon_url": "https://www.amazon.com/dp/B07JY6TD2T?tag=findmymesh-20", "used_for": "Rooftop installs", "verdict": "Cheap insurance between the antenna and the box. Ground it properly or it does nothing.", "tested_since": ""},
-    {"name": "Times Microwave LMR-400 N-male to N-male, 25 ft", "category": "Antennas", "amazon_url": "https://www.amazon.com/dp/B07Q86WGV3?tag=findmymesh-20", "used_for": "Feedline between mast and enclosure", "verdict": "Real LMR-400, not a look-alike. Low loss at 915 MHz. Keep runs short regardless.", "tested_since": ""},
-    {"name": "SMA to N adapter kit (4 pack)", "category": "Antennas", "amazon_url": "https://www.amazon.com/dp/B06XPDWBPR?tag=findmymesh-20", "used_for": "Connecting boards to N-type antennas", "verdict": "Keep a set on hand. Almost every board is SMA and almost every outdoor antenna is N.", "tested_since": ""},
-    {"name": "Voltaic Systems 10 W 6 V ETFE solar panel", "category": "Solar and power", "amazon_url": "https://www.amazon.com/dp/B085W9KCZ8?tag=findmymesh-20", "used_for": "Solar repeater panel", "verdict": "Costs more than the no-name panels and that is the point: it keeps producing after a year outside.", "tested_since": ""},
-    {"name": "Waveshare Solar Power Manager (D)", "category": "Solar and power", "amazon_url": "https://www.amazon.com/dp/B0CT2ZBML9?tag=findmymesh-20", "used_for": "Charge controller for DIY solar repeaters", "verdict": "Takes a 6 to 24 V panel, charges a lithium pack, puts out regulated 5 V. Simple and it works.", "tested_since": ""},
-    {"name": "TICONN IP67 ABS enclosure (8.7 x 6.7 x 4.3 in)", "category": "Enclosures and mounts", "amazon_url": "https://www.amazon.com/dp/B0B87V7QTH?tag=findmymesh-20", "used_for": "Repeater box", "verdict": "Room for a board, controller and a battery pack with space to work. Drill for a bulkhead N connector and a cable gland.", "tested_since": ""},
-    {"name": "Reversible J-pole antenna mount (2 pack)", "category": "Enclosures and mounts", "amazon_url": "https://www.amazon.com/dp/B09XPHRNWK?tag=findmymesh-20", "used_for": "Mounting antennas on eaves and walls", "verdict": "Sturdy enough for a fiberglass antenna and a small panel. Use real lag bolts.", "tested_since": ""},
-    {"name": "Meshnology case for Heltec V3", "category": "Enclosures and mounts", "amazon_url": "https://www.amazon.com/dp/B0F7R84CML?tag=findmymesh-20", "used_for": "Protecting bench boards", "verdict": "Cheap case that keeps the OLED and antenna connector from getting wrecked in a bag.", "tested_since": ""}
+    {
+      "name": "LILYGO T-Deck Plus (915 MHz)",
+      "category": "Companions",
+      "amazon_url": "https://www.amazon.com/dp/B0DSFR1XW5?tag=findmymesh-20",
+      "used_for": "Daily-carry companion; standalone chats without a phone",
+      "verdict": "The one I grab most. Keyboard, GPS and a 2000 mAh battery in a handheld that can chat on its own screen. Bulky, and the stock antenna is only OK.",
+      "tested_since": ""
+    },
+    {
+      "name": "Seeed SenseCAP T1000-E",
+      "category": "Companions",
+      "amazon_url": "https://www.amazon.com/dp/B0DJ6KGXKB?tag=findmymesh-20",
+      "used_for": "Pocket companion paired to the phone",
+      "verdict": "Credit-card size, IP65, built-in GPS and 700 mAh battery. No screen and no external antenna, so range is what it is. Easiest thing to hand a friend.",
+      "tested_since": ""
+    },
+    {
+      "name": "Seeed Wio Tracker L1 Pro",
+      "category": "Companions",
+      "amazon_url": "https://www.amazon.com/dp/B0H2GRDBFL?tag=findmymesh-20",
+      "used_for": "Rugged companion in the truck",
+      "verdict": "nRF52840, GPS, OLED, case and battery already assembled. Sold flashed with MeshCore on this listing. Low power, long battery life, SMA antenna port.",
+      "tested_since": ""
+    },
+    {
+      "name": "LILYGO T-Echo",
+      "category": "Companions",
+      "amazon_url": "https://www.amazon.com/dp/B0B659536P?tag=findmymesh-20",
+      "used_for": "Low-power companion with e-paper",
+      "verdict": "nRF52840 with a 1.54-inch e-paper screen and GPS. Battery sips. Screen is small and the buttons take getting used to.",
+      "tested_since": ""
+    },
+    {
+      "name": "Elecrow ThinkNode M1",
+      "category": "Companions",
+      "amazon_url": "https://www.amazon.com/dp/B0FPLWYB8R?tag=findmymesh-20",
+      "used_for": "Backup companion",
+      "verdict": "nRF52840, 1.54-inch e-paper, GPS and a 1200 mAh battery in a finished case. Solid middle option between the T-Echo and the L1 Pro.",
+      "tested_since": ""
+    },
+    {
+      "name": "Heltec WiFi LoRa 32 V3",
+      "category": "Boards",
+      "amazon_url": "https://www.amazon.com/dp/B0D1H1FN9Y?tag=findmymesh-20",
+      "used_for": "First board, bench testing, cheap companions",
+      "verdict": "The board everyone starts on. ESP32-S3, SX1262, OLED. Fine as a plugged-in companion or a mains-powered repeater; poor on battery.",
+      "tested_since": ""
+    },
+    {
+      "name": "Heltec WiFi LoRa 32 V4",
+      "category": "Boards",
+      "amazon_url": "https://www.amazon.com/dp/B0FS1R4HXH?tag=findmymesh-20",
+      "used_for": "Mains-powered repeater",
+      "verdict": "Same footprint as the V3 with a higher-power radio, protected screen and a solar input on the board. Still an ESP32, so still hungry on battery.",
+      "tested_since": ""
+    },
+    {
+      "name": "Heltec Mesh Node T114 (kit with case and battery)",
+      "category": "Boards",
+      "amazon_url": "https://www.amazon.com/dp/B0F3X3WNJP?tag=findmymesh-20",
+      "used_for": "Battery repeater and companion",
+      "verdict": "nRF52840 + SX1262 with battery and solar connectors on the board. Sips power. Good first repeater board if you want a screen.",
+      "tested_since": ""
+    },
+    {
+      "name": "RAK WisBlock Mini Meshtastic Starter Kit (RAK4631, US915)",
+      "category": "Boards",
+      "amazon_url": "https://www.amazon.com/dp/B0DFMMTQZM?tag=findmymesh-20",
+      "used_for": "Solar repeaters",
+      "verdict": "The repeater board I trust on a roof. nRF52840 core on a WisBlock base, very low idle draw, battery and solar inputs. Ships with Meshtastic, so plan on reflashing.",
+      "tested_since": ""
+    },
+    {
+      "name": "Seeed XIAO nRF52840 & Wio-SX1262 Kit",
+      "category": "Boards",
+      "amazon_url": "https://www.amazon.com/dp/B0FJWRHG8K?tag=findmymesh-20",
+      "used_for": "Smallest repeater builds",
+      "verdict": "Tiny, cheap, nRF52840. No screen, no battery, no case: a parts-bin board for people who like building.",
+      "tested_since": ""
+    },
+    {
+      "name": "Seeed SenseCAP Solar Node P1-Pro (MeshCore)",
+      "category": "Repeaters",
+      "amazon_url": "https://www.amazon.com/dp/B0H2GSYN3B?tag=findmymesh-20",
+      "used_for": "Drop-in solar repeater",
+      "verdict": "Finished solar repeater: XIAO nRF52840, SX1262, GPS, 5 W panel and four 18650 cells in an IPX6 box. Costs more than a DIY build, saves a weekend.",
+      "tested_since": ""
+    },
+    {
+      "name": "Waterproof 5.8 dBi 915 MHz fiberglass antenna (N-type)",
+      "category": "Antennas",
+      "amazon_url": "https://www.amazon.com/dp/B0GBSTPHKG?tag=findmymesh-20",
+      "used_for": "Rooftop repeater antenna",
+      "verdict": "The usual baseline for a fixed repeater. Check the included cable length and connector before you buy; you will likely need adapters.",
+      "tested_since": ""
+    },
+    {
+      "name": "ALFA AOA-915-5ACM 5 dBi outdoor antenna",
+      "category": "Antennas",
+      "amazon_url": "https://www.amazon.com/dp/B08H8J6ZV6?tag=findmymesh-20",
+      "used_for": "Compact outdoor antenna",
+      "verdict": "Short, weatherproof, N-male. Good when you can't mount a long fiberglass stick.",
+      "tested_since": ""
+    },
+    {
+      "name": "muzi works 17 cm 915 MHz whip (SMA)",
+      "category": "Antennas",
+      "amazon_url": "https://www.amazon.com/dp/B0D7D6866W?tag=findmymesh-20",
+      "used_for": "Handheld and companion antenna",
+      "verdict": "A real improvement over the stubby antennas that ship with most boards. Tuned for 915.",
+      "tested_since": ""
+    },
+    {
+      "name": "N-type lightning arrestor (N-male / N-female)",
+      "category": "Antennas",
+      "amazon_url": "https://www.amazon.com/dp/B07JY6TD2T?tag=findmymesh-20",
+      "used_for": "Rooftop installs",
+      "verdict": "Cheap insurance between the antenna and the box. Ground it properly or it does nothing.",
+      "tested_since": ""
+    },
+    {
+      "name": "Times Microwave LMR-400 N-male to N-male, 25 ft",
+      "category": "Antennas",
+      "amazon_url": "https://www.amazon.com/dp/B07Q86WGV3?tag=findmymesh-20",
+      "used_for": "Feedline between mast and enclosure",
+      "verdict": "Real LMR-400, not a look-alike. Low loss at 915 MHz. Keep runs short regardless.",
+      "tested_since": ""
+    },
+    {
+      "name": "SMA to N adapter kit (4 pack)",
+      "category": "Antennas",
+      "amazon_url": "https://www.amazon.com/dp/B06XPDWBPR?tag=findmymesh-20",
+      "used_for": "Connecting boards to N-type antennas",
+      "verdict": "Keep a set on hand. Almost every board is SMA and almost every outdoor antenna is N.",
+      "tested_since": ""
+    },
+    {
+      "name": "Voltaic Systems 10 W 6 V ETFE solar panel",
+      "category": "Solar and power",
+      "amazon_url": "https://www.amazon.com/dp/B085W9KCZ8?tag=findmymesh-20",
+      "used_for": "Solar repeater panel",
+      "verdict": "Costs more than the no-name panels and that is the point: it keeps producing after a year outside.",
+      "tested_since": ""
+    },
+    {
+      "name": "Waveshare Solar Power Manager (D)",
+      "category": "Solar and power",
+      "amazon_url": "https://www.amazon.com/dp/B0CT2ZBML9?tag=findmymesh-20",
+      "used_for": "Charge controller for DIY solar repeaters",
+      "verdict": "Takes a 6 to 24 V panel, charges a lithium pack, puts out regulated 5 V. Simple and it works.",
+      "tested_since": ""
+    },
+    {
+      "name": "TICONN IP67 ABS enclosure (8.7 x 6.7 x 4.3 in)",
+      "category": "Enclosures and mounts",
+      "amazon_url": "https://www.amazon.com/dp/B0B87V7QTH?tag=findmymesh-20",
+      "used_for": "Repeater box",
+      "verdict": "Room for a board, controller and a battery pack with space to work. Drill for a bulkhead N connector and a cable gland.",
+      "tested_since": ""
+    },
+    {
+      "name": "Reversible J-pole antenna mount (2 pack)",
+      "category": "Enclosures and mounts",
+      "amazon_url": "https://www.amazon.com/dp/B09XPHRNWK?tag=findmymesh-20",
+      "used_for": "Mounting antennas on eaves and walls",
+      "verdict": "Sturdy enough for a fiberglass antenna and a small panel. Use real lag bolts.",
+      "tested_since": ""
+    },
+    {
+      "name": "Meshnology case for Heltec V3",
+      "category": "Enclosures and mounts",
+      "amazon_url": "https://www.amazon.com/dp/B0F7R84CML?tag=findmymesh-20",
+      "used_for": "Protecting bench boards",
+      "verdict": "Cheap case that keeps the OLED and antenna connector from getting wrecked in a bag.",
+      "tested_since": ""
+    }
   ]
 }
