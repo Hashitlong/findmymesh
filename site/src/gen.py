@@ -899,6 +899,8 @@ def write_all():
     shutil.copy(f'{ROOT}/src/site.css', f'{DIST}/assets/site.css')
     shutil.copy(f'{ROOT}/src/amz-images.js', f'{DIST}/assets/amz-images.js')
     _brand.write_all(DIST)
+    # IndexNow key file (Bing & co.); key lives in the OpenSEO project for findmymesh.com
+    open(f'{DIST}/8237112c02e54a96babd88a83e894507.txt', 'w').write('8237112c02e54a96babd88a83e894507')
     for f in ('favicon.ico', 'assets/icon-32.png', 'assets/icon-180.png', 'assets/icon-192.png', 'assets/icon-512.png', 'assets/og.png'):
         if os.path.exists(f'{ROOT}/brand/{f}'): shutil.copy(f'{ROOT}/brand/{f}', f'{DIST}/{f}')
     shutil.copy(f'{REPO}/geo/zips.js', f'{DIST}/assets/zips.js')
