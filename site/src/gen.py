@@ -68,7 +68,8 @@ TILES = {"AK":[0,0],"ME":[0,11],"WI":[1,6],"VT":[1,10],"NH":[1,11],"WA":[2,1],"I
 e = lambda s: html.escape(str(s if s is not None else ''), quote=True)
 def slug(s): return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', s.lower())).strip('-')
 def state_page(code): return slug(STATES[code]) + '.html'
-CHECKED = max(g['last_checked'] for g in GROUPS)
+# Footer date = the date most groups were last checked (a single new listing must not move it)
+CHECKED = max(set(g['last_checked'] for g in GROUPS), key=lambda d: (sum(1 for g in GROUPS if g['last_checked']==d), d))
 def fmt_date(d):
     y, m, dd = map(int, d.split('-'))
     return f"{['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m-1]} {dd}, {y}"
