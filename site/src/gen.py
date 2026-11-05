@@ -326,7 +326,8 @@ TOOLS = [
     ("meshcore-mqtt-live-map","github.com/yellowcooln","https://github.com/yellowcooln/meshcore-mqtt-live-map","Live traffic map with animated routes. Powers many regional maps."),
     ("CoreScope","github.com/Kpa-clawbot","https://github.com/Kpa-clawbot/CoreScope","Self-hosted packet analyzer with live map, replay and analytics."),
     ("meshcoretomqtt","github.com/Cisien","https://github.com/cisien/meshcoretomqtt","Sends a node's packet data to MQTT. This is the observer piece."),
-    ("MeshCore Viewshed (QGIS)","github.com/alanmazzotta","https://github.com/alanmazzotta/MeshCore_QGIS","Terrain-based coverage analysis for planning repeaters.")]),
+    ("MeshCore Viewshed (QGIS)","github.com/alanmazzotta","https://github.com/alanmazzotta/MeshCore_QGIS","Terrain-based coverage analysis for planning repeaters."),
+    ("MeshPeaks","meshpeaks.com","https://meshpeaks.com/","Browser tool for planning repeater sites: viewshed and line-of-sight on real terrain, elevation profiles and Fresnel zone clearance. Built for LoRa, MeshCore and Meshtastic.")]),
   ("Desktop, phone and web tools", "Dashboards, scanners and signal testers.", [
     ("MeshMonitor","github.com/Yeraze","https://github.com/Yeraze/meshmonitor","Web dashboard for monitoring mesh nodes. Supports MeshCore."),
     ("Remote Terminal for MeshCore","github.com/jkingsman","https://github.com/jkingsman/Remote-Terminal-for-MeshCore","Remote client with packet capture, bots and MQTT."),
