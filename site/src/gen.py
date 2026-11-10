@@ -385,7 +385,7 @@ MAP_KINDS = {
  'map.pvmesh.org': ('live', ''), 'chicagolandmesh.org/corescope/map': ('live', 'CoreScope: press Live on the map.'), 'map.lvmesh.com': ('live', 'CoreScope: press Live on the map.'),
  'map.nvme.sh/map3': ('live', 'CoreScope: press Live on the map.'), 'map.okimesh.org': ('live', 'CoreScope: press Live on the map.'),
  'www.eastidahomesh.com/live-map.html': ('live', 'CoreScope: press Live on the map.'), 'www.gulfcoastmesh.org/meshmap': ('live', 'Live analyzer embedded on the page.'),
- 'nhmesh.live': ('live', 'Live dashboard with messages and map.'), 'map.nocomesh.org/map': ('live', 'Packet viewer (Meshview) with a traffic heat map.'),
+ 'nhmesh.live': ('live', 'Live dashboard with messages and map.'), 'explorer.comchan.net': ('live', 'Routes, adverts and messages draw in real time; also has a line-of-sight tool. Packet analyzer at analyzer.comchan.net.'), 'map.nocomesh.org/map': ('live', 'Packet viewer (Meshview) with a traffic heat map.'),
  'rdumesh.org/map': ('node', ''), 'nashme.sh/map': ('node', ''), 'map.wcmesh.com': ('node', ''), 'idahomesh.org/map': ('node', ''), 'nodakmesh.org/meshcore/map': ('node', ''),
  'api.phillymesh.net/map': ('node', ''), 'mesh.og.coop/map': ('node', ''), 'map.nwomesh.org': ('node', 'Meshtastic map.'), 'map.bucksmesh.net': ('node', 'Meshtastic monitor.'),
  'wnymeshcore.org/map': ('coverage', ''), 'dcmesh.org/coverage-map': ('coverage', ''), 'ntxmesh.com/coverage-map': ('coverage', ''), 'cnymesh.org/map.html': ('coverage', ''),
