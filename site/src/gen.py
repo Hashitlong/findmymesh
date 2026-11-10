@@ -389,7 +389,7 @@ MAP_KINDS = {
  'rdumesh.org/map': ('node', ''), 'nashme.sh/map': ('node', ''), 'map.wcmesh.com': ('node', ''), 'idahomesh.org/map': ('node', ''), 'nodakmesh.org/meshcore/map': ('node', ''),
  'api.phillymesh.net/map': ('node', ''), 'mesh.og.coop/map': ('node', ''), 'map.nwomesh.org': ('node', 'Meshtastic map.'), 'map.bucksmesh.net': ('node', 'Meshtastic monitor.'),
  'wnymeshcore.org/map': ('coverage', ''), 'dcmesh.org/coverage-map': ('coverage', ''), 'ntxmesh.com/coverage-map': ('coverage', ''), 'cnymesh.org/map.html': ('coverage', ''),
- 'idahomesh.com/maps': ('coverage', ''), 'cascadiamesh.org/map': ('unknown', 'Blocked our check; open it to see.'), 'map.atlmesh.org': ('unknown', 'Was down on the check date.'),
+ 'idahomesh.com/maps': ('coverage', ''), 'cascadiamesh.org/map': ('unknown', 'Blocked our check; open it to see.'),
 }
 KIND_LABEL = {'live': 'Live traffic', 'node': 'Node map', 'coverage': 'Coverage', 'unknown': 'Map'}
 def _mh(u):

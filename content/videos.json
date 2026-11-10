@@ -552,17 +552,6 @@
       "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). Setting a repeater's regional network settings correctly; Canadian creator, same mechanism in the U.S."
     },
     {
-      "title": "MeshCore Regions Overview! - January 2026",
-      "channel": "104's UKCBTV",
-      "channel_url": "https://www.youtube.com/@104s_UKCBTV",
-      "url": "https://www.youtube.com/watch?v=2LPwjfuCr3Y",
-      "video_id": "2LPwjfuCr3Y",
-      "category": "regions",
-      "published": "2026-01-25",
-      "verified_by": "oembed",
-      "notes": "date from channel RSS feed (UTC; may differ by a day from YouTube's displayed date). UK channel; general explainer of the MeshCore regions feature as of firmware v1.11-era (January 2026). Region names shown are UK ones."
-    },
-    {
       "title": "Improving Performance in Busy MeshCore Networks",
       "channel": "MeshOS",
       "channel_url": "https://www.youtube.com/@meshcore-meshos",
@@ -729,7 +718,7 @@
       "name": "104's UKCBTV",
       "url": "https://www.youtube.com/@104s_UKCBTV",
       "why": "UK channel with several short, practical MeshCore how-tos on regions/regional scope (app OTA, CLI, PC terminal) and busy-mesh tuning. UK region names, same mechanism in the U.S.",
-      "example_video": "https://www.youtube.com/watch?v=2LPwjfuCr3Y"
+      "example_video": "https://www.youtube.com/watch?v=sGahpl-1QMA"
     }
   ]
 }
