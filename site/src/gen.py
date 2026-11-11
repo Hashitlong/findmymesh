@@ -903,6 +903,10 @@ def write_all():
     _brand.write_all(DIST)
     # IndexNow key file (Bing & co.); key lives in the OpenSEO project for findmymesh.com
     open(f'{DIST}/8237112c02e54a96babd88a83e894507.txt', 'w').write('8237112c02e54a96babd88a83e894507')
+    # List of URLs that went live today, for the post-deploy IndexNow ping (netlify/functions/indexnow.mjs)
+    if SITE_URL:
+        new_today = [f"{SITE_URL}/{p['page'][:-5]}" for p in POSTS if p['date'] == TODAY]
+        json.dump({'generated': TODAY, 'urls': (new_today + [f'{SITE_URL}/blog', f'{SITE_URL}/']) if new_today else []}, open(f'{DIST}/indexnow-today.json', 'w'))
     for f in ('favicon.ico', 'assets/icon-32.png', 'assets/icon-180.png', 'assets/icon-192.png', 'assets/icon-512.png', 'assets/og.png'):
         if os.path.exists(f'{ROOT}/brand/{f}'): shutil.copy(f'{ROOT}/brand/{f}', f'{DIST}/{f}')
     shutil.copy(f'{REPO}/geo/zips.js', f'{DIST}/assets/zips.js')
