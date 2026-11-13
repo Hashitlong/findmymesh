@@ -21,6 +21,7 @@ SITE_URL = ''
 if '--site' in sys.argv:
     SITE_URL = sys.argv[sys.argv.index('--site') + 1].rstrip('/')
 NAME = 'Find My Mesh'
+HOME_TITLE = 'Find My Mesh: U.S. MeshCore Group Directory, Maps and Gear'
 
 GROUPS = json.load(open(f'{ROOT}/groups.json'))
 USMAP = json.load(open(f'{ROOT}/usmap.json'))
@@ -270,9 +271,27 @@ def footer():
 <div class="fine"><span>Independent community directory, not endorsed by any MeshCore or Meshtastic project. MeshCore and Meshtastic are trademarks of their respective owners and are used here only to identify the projects. As an Amazon Associate I earn from qualifying purchases; links marked "Paid link" on the gear and review pages are affiliate links. Product prices and availability shown are accurate as of the date/time indicated and are subject to change; any price and availability information displayed on Amazon at the time of purchase will apply. <a href="about.html#disclosures">Disclosures &amp; privacy</a>.</span><span class="mono">Links checked {CHECKED_H}</span></div>
 </div></footer>'''
 
+def schema(fname, full_title, desc, ld=None):
+    """JSON-LD for every page: WebSite + Organization on the home page, BlogPosting on posts, WebPage elsewhere."""
+    if not SITE_URL or NOINDEX or fname == '404.html': return ''
+    url = f'{SITE_URL}/{"" if fname == "index.html" else fname.replace(".html", "")}'
+    org = {'@type': 'Organization', '@id': f'{SITE_URL}/#org', 'name': NAME, 'url': f'{SITE_URL}/', 'logo': f'{SITE_URL}/assets/icon-512.png'}
+    site = {'@type': 'WebSite', '@id': f'{SITE_URL}/#site', 'name': NAME, 'url': f'{SITE_URL}/'}
+    if fname == 'index.html':
+        graph = [dict(site, description=desc, publisher={'@id': org['@id']}), org]
+    elif ld and ld.get('type') == 'BlogPosting':
+        post = {'@type': 'BlogPosting', 'headline': ld.get('headline', full_title)[:110], 'description': desc, 'url': url,
+                'mainEntityOfPage': url, 'datePublished': ld['date'], 'author': {'@id': org['@id']}, 'publisher': {'@id': org['@id']},
+                'isPartOf': {'@id': site['@id']}}
+        if ld.get('image'): post['image'] = ld['image']
+        graph = [post, org, site]
+    else:
+        graph = [{'@type': 'WebPage', 'name': full_title, 'description': desc, 'url': url, 'isPartOf': {'@id': site['@id']}}, site]
+    return '\n<script type="application/ld+json">' + json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('</', '<\\/') + '</script>'
+
 PAGES = {}
-def page(fname, title, desc, cur, body, scripts=''):
-    full_title = title if title == NAME else f'{title} · {NAME}'
+def page(fname, title, desc, cur, body, scripts='', ld=None):
+    full_title = title if (title == NAME or fname == 'index.html') else f'{title} · {NAME}'
     canon = f'<link rel="canonical" href="{SITE_URL}/{"" if fname=="index.html" else fname.replace(".html","")}">' if SITE_URL else ''
     robots = '<meta name="robots" content="noindex, nofollow">\n' if NOINDEX else ''
     head = f'''{robots}<title>{e(full_title)}</title>
@@ -284,7 +303,7 @@ def page(fname, title, desc, cur, body, scripts=''):
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="32x32"><link rel="apple-touch-icon" href="assets/icon-180.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#b4541a">
 <meta property="og:image" content="{SITE_URL + "/" if SITE_URL else ""}assets/og.png">
-{GA_TAG if SITE_URL and not NOINDEX else ''}'''
+{GA_TAG if SITE_URL and not NOINDEX else ''}{schema(fname, full_title, desc, ld)}'''
     content = f'{header(cur)}\n<main id="main">{body}</main>\n{footer()}\n{scripts}'
     PAGES[fname] = (head, content)
 
@@ -440,7 +459,7 @@ def build_home():
     script = '''<script>
 document.getElementById('homefind').addEventListener('submit',function(ev){ev.preventDefault();var z=document.getElementById('zip').value.trim();location.href='near-me.html'+(/^\\d{5}$/.test(z)?'#z-'+z:'');});
 </script>'''
-    page('index.html', NAME, f'Find MeshCore mesh radio groups near you: {len(GROUPS)} verified U.S. groups with websites, Discords, Facebook groups, live maps and radio settings.', 'home',
+    page('index.html', HOME_TITLE, f'Find MeshCore mesh radio groups near you: {len(GROUPS)} verified U.S. groups with websites, Discords, Facebook groups, live maps and radio settings.', 'home',
          band(hero, 11) + path + states + official + more, script)
 
 def lk_int(href, title, about):
@@ -881,7 +900,8 @@ def build_blog():
  <section class="panel"><h3>About these reviews</h3><p class="small">Everything reviewed here was bought and run by the author, usually for months, on a real mesh. Opinions are the author's own. <a href="about.html">How this site works</a>.</p></section>
  {f'<section class="panel"><h3>More posts</h3>{"".join(f"<a class=chip href={q[chr(112)+chr(97)+chr(103)+chr(101)]}>{e(q[chr(116)+chr(105)+chr(116)+chr(108)+chr(101)])}</a>" for q in related)}</section>' if related else ''}
 </aside></div></div>'''
-        page(p['page'], p['title'], p.get('summary', p['title'])[:155], 'blog', body, '<script src="assets/amz-images.js" defer></script>' if prods else '')
+        page(p['page'], p['title'], p.get('summary', p['title'])[:155], 'blog', body, '<script src="assets/amz-images.js" defer></script>' if prods else '',
+             ld={'type': 'BlogPosting', 'headline': p['title'], 'date': str(p['date'])[:10], 'image': f'{SITE_URL}/images/{p["hero"]}' if hero else ''})
     # index
     def card(p):
         return f'<a class="lk" href="{p["page"]}"><span class="badge">{e(p.get("category",""))} · {fmt_date(p["date"])}</span><strong>{e(p["title"])}</strong><span>{e(p.get("summary",""))}</span></a>'
