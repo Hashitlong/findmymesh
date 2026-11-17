@@ -1,6 +1,6 @@
 ---
 title: A MeshCore node for the truck: mag-mount antenna, always-on power, and which radio
-date: 2026-11-25
+date: 2026-12-01
 summary: A vehicle node reaches repeaters your pocket radio can't, because the antenna is on the roof. Here's the simple version that doesn't involve drilling.
 category: Builds
 products:

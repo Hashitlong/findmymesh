@@ -1,6 +1,6 @@
 ---
 title: T-Echo vs T1000-E: which pocket companion to give someone who isn't a radio person
-date: 2026-11-19
+date: 2026-11-24
 summary: Both are small, both have GPS, both run for days. One has a screen and an antenna port; the other is a sealed card. For a spouse, a kid or a hiking partner, here's which.
 category: Comparisons
 products:

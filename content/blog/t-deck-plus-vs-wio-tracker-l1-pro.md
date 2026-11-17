@@ -1,6 +1,6 @@
 ---
 title: T-Deck Plus vs Wio Tracker L1 Pro: the two companions people actually argue about
-date: 2026-11-22
+date: 2026-11-27
 summary: One has a keyboard and runs without a phone. The other runs for days and takes a real antenna. I carry both, and the right one depends on a single question.
 category: Comparisons
 products:
