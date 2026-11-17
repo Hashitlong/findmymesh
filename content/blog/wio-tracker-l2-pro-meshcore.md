@@ -1,6 +1,6 @@
 ---
 title: "Seeed Wio Tracker L2 Pro and MeshCore: wait before you buy"
-date: 2026-11-18
+date: 2026-11-17
 summary: Seeed's new touchscreen handheld is $69.90 and looks like a T-Deck Plus rival. It ships for Meshtastic, and MeshCore support is not in an official release yet. Here is what is confirmed and what is not.
 category: News
 products:
