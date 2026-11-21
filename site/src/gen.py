@@ -510,6 +510,16 @@ def build_states():
             s_ = node_stats(c) or {}
             nm = f'<strong>{e(STATES[c])}</strong>' if c == code else f'<a href="{state_page(c)}">{e(STATES[c])}</a>'
             return f'<tr><td>{nm}</td><td class="num">{count(c)}</td><td class="num">{num(s_.get("repeaters", 0))}</td><td class="num">{num(s_.get("rooms", 0))}</td><td class="num">{num(s_.get("active30", 0))}</td></tr>'
+        cities = (ns or {}).get('cities') or []
+        where = ''
+        if cities:
+            crow = lambda c: f'<tr><td>{e(c["name"])}</td><td class="num">{num(c["repeaters"])}</td><td class="num">{num(c["rooms"])}</td><td class="num">{num(c["active30"])}</td></tr>'
+            big = [c for c in cities[:3] if (c['repeaters'] + c['rooms']) >= max(3, (cities[0]['repeaters'] + cities[0]['rooms']) * 0.25)] or cities[:1]
+            top3 = ' and '.join(filter(None, [', '.join(c['name'] for c in big[:-1]), big[-1]['name']]))
+            rest = (ns.get('cityCount', len(cities)) - len(cities))
+            where = f'''<div class="section-head"><h2>Where the repeaters are in {e(name)}</h2><p class="sub">The {num(ns["repeaters"])} repeaters and {num(ns["rooms"])} room servers on the community map, grouped by the nearest town. Most of them are around {e(top3)}.</p></div>
+<div class="tbox"><table><thead><tr><th>Town</th><th class="num">Repeaters</th><th class="num">Room servers</th><th class="num">Heard in 30 days</th></tr></thead><tbody>{"".join(crow(c) for c in cities)}</tbody></table></div>
+<p class="small sub">Each node is counted under the nearest town of 1,000+ people within 30 miles{f", so {num(rest)} more towns with a node or two are not listed" if rest > 0 else ""}{f"; {num(ns['unplaced'])} nodes are more than 30 miles from any town" if ns.get('unplaced') else ""}. Node positions come from map.meshcore.io on {NODE_DATE}; owners place their own pins, so treat the town as approximate.</p>'''
         compare = f'<div class="section-head"><h2>{e(name)} and its neighbors</h2><p class="sub">Groups we verified, and nodes on the community map on {NODE_DATE}.</p></div><div class="tbox"><table><thead><tr><th>State</th><th class="num">Groups</th><th class="num">Repeaters</th><th class="num">Room servers</th><th class="num">Heard in 30 days</th></tr></thead><tbody>{"".join(nrow(c) for c in [code] + nb)}</tbody></table></div>' if nb and NODES else ''
         rank_dd = ''
         if ns and NODES:
@@ -528,6 +538,7 @@ def build_states():
  {empty}
  {f'<div class="section-head"><h2>Local groups</h2></div><div class="rows">{"".join(group_detail(g) for g in local)}</div>' if local else ''}
  {f'<div class="section-head"><h2>Regional groups covering {e(name)}</h2></div><div class="rows">{"".join(group_detail(g, True) for g in regional)}</div>' if regional else ''}
+ {where}
  {compare}
 </div><aside>
  <section class="panel"><h3>Radio settings used here</h3>{"".join(f"<div>{readout(s)}</div>" for s in settings) + "<p class='small sub'>From the groups' own pages. Ask your local group before changing settings; some areas differ.</p>" if settings else "<p class='small sub'>No group here publishes settings we could confirm. Most U.S. groups we checked use the USA/Canada preset. Ask your local group before you set a radio.</p>"}</section>
