@@ -173,6 +173,29 @@ def group_row(g, show_state=False, dist=None):
   <div class="acts">{group_chips(g)}</div>
 </div>'''
 
+def group_detail(g, show_state=False):
+    """State-page listing: the short row plus everything we know about the group."""
+    rows = []
+    def dd(label, val):
+        if val: rows.append(f'<dt>{label}</dt><dd>{val}</dd>')
+    def out(u): return f'<a href="{e(u)}" target="_blank" rel="noopener">{e(host(u))}</a>'
+    if safe(g['website_url']): dd('Website', out(g['website_url']))
+    if safe(g['discord_url']):
+        dd('Discord', (f"{e(g['discord_server_name'])}, {num(g['discord_members'])} members on {fmt_date(g['last_checked'])}" if g['discord_server_name'] and g['discord_members'] else 'Members-only link; join through the website' if 'channels' in g['discord_url'] else out(g['discord_url'])))
+    if safe(g['facebook_url']): dd('Facebook', f"{e(g['facebook_name'])}, {e(g['facebook_size'])}" if g['facebook_name'] and g['facebook_size'] else e(g['facebook_name']) or out(g['facebook_url']))
+    if safe(g['other_chat_url']): dd(other_label(g['other_chat_url']), out(g['other_chat_url']))
+    if safe(g['live_map_url']):
+        note = map_note(g['live_map_url'])
+        dd(KIND_LABEL[map_kind(g['live_map_url'])], out(g['live_map_url']) + (f' <span class="sub">({e(note)})</span>' if note else ''))
+    if g['radio_settings_confirmed']: dd('Radio settings', readout(g['radio_settings_confirmed']))
+    if g.get('pin') and g['pin'].get('city'): dd('Main city', f"{e(g['pin']['city'])}, {e(g['pin']['state'])}")
+    dd('How we verified', e(g['meshcore_confirmed_by']))
+    dd('Last checked', fmt_date(g['last_checked']))
+    note = f'<p class="gnote"><strong>Note:</strong> {e(g["notes"])}</p>' if g['notes'] else ''
+    row = group_row(g, show_state)
+    assert row.rstrip().endswith('</div>')
+    return row.rstrip()[:-6] + f'<dl class="facts gfacts">{"".join(rows)}</dl>{note}</div>'
+
 # ---------- maps ----------
 def us_map(pins=True, hops=True, link_states=True, cls='usmap'):
     parts = []
@@ -483,6 +506,28 @@ def build_states():
         empty = f'''<div class="empty"><h2>No MeshCore group found in {e(name)} yet</h2><p>We looked for {'an' if name[0] in 'AEIOU' else 'a'} {e(name)} group with its own website, Discord or Facebook group and didn't find one we could verify. That doesn't mean nobody is on the air.</p>
 <div class="acts" style="display:flex;flex-wrap:wrap;gap:8px"><a class="chip" href="add.html">Tell us about a group</a><a class="chip" href="https://map.meshcore.io/" target="_blank" rel="noopener">{ICON["map"]}Check the node map</a><a class="chip" href="https://www.facebook.com/groups/meshcore" target="_blank" rel="noopener">{ICON["facebook"]}Ask in MeshCore Official</a></div></div>{nearest}''' if not lst else ''
         ns = node_stats(code)
+        def nrow(c):
+            s_ = node_stats(c) or {}
+            nm = f'<strong>{e(STATES[c])}</strong>' if c == code else f'<a href="{state_page(c)}">{e(STATES[c])}</a>'
+            return f'<tr><td>{nm}</td><td class="num">{count(c)}</td><td class="num">{num(s_.get("repeaters", 0))}</td><td class="num">{num(s_.get("rooms", 0))}</td><td class="num">{num(s_.get("active30", 0))}</td></tr>'
+        cities = (ns or {}).get('cities') or []
+        where = ''
+        if cities:
+            crow = lambda c: f'<tr><td>{e(c["name"])}</td><td class="num">{num(c["repeaters"])}</td><td class="num">{num(c["rooms"])}</td><td class="num">{num(c["active30"])}</td></tr>'
+            big = [c for c in cities[:3] if (c['repeaters'] + c['rooms']) >= max(3, (cities[0]['repeaters'] + cities[0]['rooms']) * 0.25)] or cities[:1]
+            top3 = ' and '.join(filter(None, [', '.join(c['name'] for c in big[:-1]), big[-1]['name']]))
+            rest = (ns.get('cityCount', len(cities)) - len(cities))
+            where = f'''<div class="section-head"><h2>Where the repeaters are in {e(name)}</h2><p class="sub">The {num(ns["repeaters"])} repeaters and {num(ns["rooms"])} room servers on the community map, grouped by the nearest town. Most of them are around {e(top3)}.</p></div>
+<div class="tbox"><table><thead><tr><th>Town</th><th class="num">Repeaters</th><th class="num">Room servers</th><th class="num">Heard in 30 days</th></tr></thead><tbody>{"".join(crow(c) for c in cities)}</tbody></table></div>
+<p class="small sub">Each node is counted under the nearest town of 1,000+ people within 30 miles{f", so {num(rest)} more towns with a node or two are not listed" if rest > 0 else ""}{f"; {num(ns['unplaced'])} nodes are more than 30 miles from any town" if ns.get('unplaced') else ""}. Node positions come from map.meshcore.io on {NODE_DATE}; owners place their own pins, so treat the town as approximate.</p>'''
+        compare = f'<div class="section-head"><h2>{e(name)} and its neighbors</h2><p class="sub">Groups we verified, and nodes on the community map on {NODE_DATE}.</p></div><div class="tbox"><table><thead><tr><th>State</th><th class="num">Groups</th><th class="num">Repeaters</th><th class="num">Room servers</th><th class="num">Heard in 30 days</th></tr></thead><tbody>{"".join(nrow(c) for c in [code] + nb)}</tbody></table></div>' if nb and NODES else ''
+        rank_dd = ''
+        if ns and NODES:
+            order = sorted(NODES['perState'], key=lambda c: -NODES['perState'][c].get('repeaters', 0))
+            if code in order: rank_dd = f'<dt>Rank by repeaters</dt><dd>{order.index(code)+1} of {len(order)} (states and DC)</dd>'
+        freq_dd = ''
+        if ns and len(ns.get('freq', [])) > 1:
+            freq_dd = '<dt>Other frequencies seen</dt><dd class="mono">' + ', '.join(f'{e(str(f))} MHz ({num(n_)})' for f, n_ in ns['freq'][1:]) + '</dd>'
         node_readout = f'<div><b>{num(ns["repeaters"])}</b><span>repeaters on the map</span></div><div><b>{num(ns["active30"])}</b><span>nodes heard in 30 days</span></div>' if ns else '<div><b>0</b><span>nodes on the map</span></div>'
         maps_live = [g for g in maps if map_kind(g['live_map_url']) == 'live']
         head = pagehead(f'MeshCore in {e(name)}', '', [('index.html', 'Home'), ('states.html', 'States'), (None, name)],
@@ -491,11 +536,13 @@ def build_states():
         body = band(f'<div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center" class="statehead">{head}<figure style="margin:0;padding-block:20px">{state_map(code)}<figcaption class="mapnote">Dots are repeaters and room servers on the community map; bright ones were heard in the last 30 days. Large dots are local groups.</figcaption>{NODE_CREDIT}{live_btn}</figure></div>', hash(code) % 50) + f'''
 <div class="wrap section"><div class="cols"><div class="main">
  {empty}
- {f'<div class="section-head"><h2>Local groups</h2></div><div class="rows">{"".join(group_row(g) for g in local)}</div>' if local else ''}
- {f'<div class="section-head"><h2>Regional groups covering {e(name)}</h2></div><div class="rows">{"".join(group_row(g, True) for g in regional)}</div>' if regional else ''}
+ {f'<div class="section-head"><h2>Local groups</h2></div><div class="rows">{"".join(group_detail(g) for g in local)}</div>' if local else ''}
+ {f'<div class="section-head"><h2>Regional groups covering {e(name)}</h2></div><div class="rows">{"".join(group_detail(g, True) for g in regional)}</div>' if regional else ''}
+ {where}
+ {compare}
 </div><aside>
  <section class="panel"><h3>Radio settings used here</h3>{"".join(f"<div>{readout(s)}</div>" for s in settings) + "<p class='small sub'>From the groups' own pages. Ask your local group before changing settings; some areas differ.</p>" if settings else "<p class='small sub'>No group here publishes settings we could confirm. Most U.S. groups we checked use the USA/Canada preset. Ask your local group before you set a radio.</p>"}</section>
- {f'<section class="panel"><h3>On the community map</h3><dl class="facts"><dt>Repeaters</dt><dd>{num(ns["repeaters"])}</dd><dt>Room servers</dt><dd>{num(ns["rooms"])}</dd><dt>Companions</dt><dd>{num(ns["companions"])}</dd><dt>Heard in 30 days</dt><dd>{num(ns["active30"])} of {num(ns["total"])}</dd><dt>Most common frequency</dt><dd class="mono">{e(str(ns["freq"][0][0]))} MHz ({num(ns["freq"][0][1])} nodes)</dd></dl><p class="small sub">From map.meshcore.io on {NODE_DATE}. Owners choose whether to publish a node, so real numbers are higher.</p></section>' if ns and ns["freq"] else ''}
+ {f'<section class="panel"><h3>On the community map</h3><dl class="facts"><dt>Repeaters</dt><dd>{num(ns["repeaters"])}</dd><dt>Room servers</dt><dd>{num(ns["rooms"])}</dd><dt>Companions</dt><dd>{num(ns["companions"])}</dd><dt>Heard in 30 days</dt><dd>{num(ns["active30"])} of {num(ns["total"])}</dd><dt>Most common frequency</dt><dd class="mono">{e(str(ns["freq"][0][0]))} MHz ({num(ns["freq"][0][1])} nodes)</dd>{freq_dd}{rank_dd}</dl><p class="small sub">From map.meshcore.io on {NODE_DATE}. Owners choose whether to publish a node, so real numbers are higher.</p></section>' if ns and ns["freq"] else ''}
  <section class="panel"><h3>Maps</h3>{"".join(f'<a class="chip" href="{e(g["live_map_url"])}" target="_blank" rel="noopener">{ICON["map"]}{e(g["group_name"])} <span class="n">{KIND_LABEL[map_kind(g["live_map_url"])]}</span></a>' for g in maps) or "<p class='small sub'>None listed. An area shows up on live maps when someone runs an observer. <a href='live-maps.html#observer'>How that works</a>.</p>"}</section>
  {f'<section class="panel"><h3>Neighboring states</h3><div style="display:flex;flex-wrap:wrap;gap:8px">{"".join(f"<a class=chip href={state_page(n)}>{e(STATES[n])} <span class=n>{count(n)}</span></a>" for n in nb)}</div></section>' if nb else ''}
  <a class="btn line" href="add.html">Add or fix a listing</a>
@@ -915,6 +962,15 @@ def build_404():
     page('404.html', 'Page not found', 'Page not found.', '', band(pagehead('Page not found', 'The page moved or never existed. Try finding a group near you.', None, '<p><a class="btn" href="near-me.html">Find a group</a></p>'), 2))
 
 # ---------- write ----------
+def lastmod(fname):
+    """Sitemap date = the day the page's content last changed, not one date for the whole site."""
+    for g in GROUPS:
+        if g['page'] == fname: return g['last_checked']
+    for p in POSTS:
+        if p['page'] == fname: return p['date']
+    daily = {'index.html', 'states.html', 'directory.html', 'blog.html'} | {state_page(c) for c in STATES}
+    return TODAY if (fname in daily and NODES) else CHECKED
+
 def write_all():
     if os.path.exists(DIST): shutil.rmtree(DIST)
     os.makedirs(f'{DIST}/assets')
@@ -941,7 +997,7 @@ def write_all():
     head, content = PAGES['index.html']
     open(f'{ROOT}/artifact-index.html', 'w').write(f'{head}\n{content}\n')
     if SITE_URL:
-        urls = ''.join(f'<url><loc>{SITE_URL}/{"" if f=="index.html" else f.replace(".html","")}</loc><lastmod>{CHECKED}</lastmod></url>' for f in PAGES if f != '404.html')
+        urls = ''.join(f'<url><loc>{SITE_URL}/{"" if f=="index.html" else f.replace(".html","")}</loc><lastmod>{lastmod(f)}</lastmod></url>' for f in PAGES if f != '404.html')
         open(f'{DIST}/sitemap.xml', 'w').write(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
         open(f'{DIST}/robots.txt', 'w').write(f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n')
     if NOINDEX:
